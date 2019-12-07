@@ -1,0 +1,88 @@
+
+
+RHEL-7.5_HVM_GA-20180322-x86_64-1-Hourly2-GP2 (ami-5b673c34)
+
+All Tutorials and Slides and Video you can find it in 
+www.DevOpsSchool.Com
+www.DevOpsSchool.Com/Slides
+www.DevOpsSchool.Com/tutorial
+www.DevOpsSchool.Com/pdf
+www.DevOpsSchool.Com/notes
+www.DevOpsSchool.Com/lms
+www.DevOpsSchool.Com/blog
+
+
+Email - Contact@DevOpsschool.Com
+my site - http://rajeshkumar.xyz/
+
+What is SonarQube?
+========================
+Is a QUALITY Management Tool
+Release
+        Community - Free - OS
+        Enterprise - PAID
+Dev in JAVA.
+From SonarSource
+Powered by Plugins 
+        - Extention of func - through plugins.
+
+What is Quality?
+    - Code Quality 
+                    1. Peer Code Review
+                    2. Static Code Review - Automatically.  - Reports
+                    https://en.wikipedia.org/wiki/List_of_tools_for_static_code_analysis
+    - Test Quality 
+                    Test Reports
+                    Code Coverage reports
+
+Why we need Sonarqube?
+        - Quality of the Software is very important
+                - Managaing a quality reports and timeline growth in terms of quality
+                - Team needs a Common place where Code Analysis review can be done.
+                            - Web Dashboard
+                - WHAT IS PRB in code -> Why this prb --> Who has introducred -> How to fix it?
+                - 70% of the BUGS is found coz of BAD CODE QUALITY
+
+SonarQube Architecture
+-----------------------------------
+SonarQube Server
+        - DASHBOArD + DATABASE  + RULES
+                            MYSQL
+                            H2
+                            ORACLE
+                            MSSQL
+                            PS
+Scanner
+    - jar file.
+    - Agent running in a place where you have a source code.
+            - CommandLine
+            - Maven
+            - Gradle
+            - Jenkins
+            - msbuild
+SourceCode
+    - 
+https://github.com/devops-school/java-sonar-runner-simple
+
+How it works?
+----------------------
+refer images + videos
+
+Demo
+============================
+13.232.191.19
+http://13.232.191.19:9000/
+admin
+admin
+
+Sonarqube - 6 - JDK 8
+Sonarqube 7 - JDK 11
+NOt rOOt ACCOUNt MUST Be tHERE to START A SONARQUBE SErVEr.
+
+
+https://www.sonarqube.org/
+Sonarqube Prop file 
+- 
+https://www.devopsschool.com/tutorial/sonarqube/sonarqube-properties.html
+
+/home/ec2-user/scanner/bin/sonar-scanner
