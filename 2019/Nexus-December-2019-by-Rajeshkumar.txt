@@ -1,0 +1,166 @@
+What is NEXUS?
+	Repo mgmt tool.
+		For what?
+			Packages
+				jar|war|
+				apt
+				yum
+				npm
+				docker
+				nuget
+			Binary
+	From Sonatype
+	Dev in JAVA
+	Release
+		Community - Free - Limited Func.
+		Professional - PAID - ENterprise
+
+Why Nexus?
+===========================
+SDLC
+https://www.devopsschool.com/path
+		Availability of package
+		Security of package
+		Durability 
+		Easy admin and Maintaince
+Other tools?
+	Artifactory - Archiva - Nuget Gallery - Choclate - 
+
+How to install it?
+	Pre - JRE + JDK
+
+Linux REHl 7.6 - 
+	NEXUS?
+=====================================
+13.233.186.254:8081
+=======================
+  4  yum install wget -y
+    5  wget -c --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-
+
+pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.rpm
+    6  rpm -ivh jdk-8u131-linux-x64.rpm
+    7  cd
+    8  clear
+    9  wget http://download.sonatype.com/nexus/3/latest-unix.tar.gz
+   10  tar -zxvf latest-unix.tar.gz
+   11  clear
+   12  ls
+   13  cd /opt/
+   14  ls
+   15  wget http://download.sonatype.com/nexus/3/latest-unix.tar.gz
+   16  clear
+   17  ls
+   18  tar -zxvf latest-unix.tar.gz
+   19  clear
+   20  ls
+   21  cd nexus-3.20.0-04
+   22  ls
+   23  cd bin/
+   24  ls
+   25  ./nexus start
+   26  ./nexus status
+   27  ./nexus status
+   28  clear
+   29  ls
+   30  cd ..
+   31  ls
+   32  cd etc/
+   33  ls
+   34  more nexus-default.properties
+   35  more /opt/sonatype-work/nexus3/admin.password
+   36  clear
+   37  history
+
+===================================================
+Type of Package in repostory Formats
+==========================
+APT 
+Composer
+Composer* 
+Conan
+Conan* 
+CPAN
+CPAN* 
+Docker
+Docker 
+ELPA
+ELPA* 
+Git LFS
+Git LFS 
+Go
+Go 
+Helm
+Helm* 
+Maven
+Maven 
+npm
+npm 
+NuGet
+NuGet 
+P2
+P2* 
+PyPI
+PyPI 
+R
+R 
+Raw
+Raw 
+RubyGems
+RubyGems 
+Yum
+Yum 
+
+
+=========================================
+Each Repostory has TYPE
+	HOSTED - READ - WRITE - LOCCATED NEAREST TO A PLACE FROM YOU DOWNLOAD AND UPLOAD>
+	PROXY - From Remote Repo --? Cache copy. - READ ONLY.
+	GROUP - MULTIPLES HOSTED  and MULTIPLE PROXY  can be group together...
+
+Maven Hosted Repo
+		RELEASE
+		http://13.233.186.254:8081/repository/devopsschool-release/
+		SNAPSHOT
+		http://13.233.186.254:8081/repository/devopsschool-snapshot/
+Mavebn Proxy repo
+		
+		http://13.233.186.254:8081/repository/devopsschool-proxy/	
+Maven Group 
+
+		http://13.233.186.254:8081/repository/devopsschool-group/
+====================================================================
+USER and ROLES
+		
+deploy
+deploy123
+====================================
+How to upload a artifact to nexus using maven?
+s1 - modify pom.xml with repo location
+s2 - modify setting.xml with permission.
+s3 - mvn deploy
+
+How to download a artifact from nexus using maven?
+s1 - modify pom.xml with dependent lib which you want to download?
+s2 - modify setting.xml with mirrors
+s3 - mvn compile | test | install
+
+https://github.com/devops-school/helloworld-java-maven
+================================================
+
+
+My name - Rajesh Kumar
+http://rajeshkumar.xyz/
+
+http://devopsschool.com/blog
+https://www.devopsschool.com/tutorial/
+https://www.devopsschool.com/slides
+https://www.devopsschool.com/pdf
+https://www.devopsschool.com/lms
+
+
+Nexus-December-2019-by-Rajeshkumar.txt
+
+
+
+
+
