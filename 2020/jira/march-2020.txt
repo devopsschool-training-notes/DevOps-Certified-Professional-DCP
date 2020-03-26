@@ -1,3 +1,6 @@
+contact@DevOpsSchool.com
+============================
+
 What is Jira?
 	Issues mgmt
 		Bugs mgmt
