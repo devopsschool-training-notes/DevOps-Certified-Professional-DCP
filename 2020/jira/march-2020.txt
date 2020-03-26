@@ -1,0 +1,119 @@
+What is Jira?
+	Issues mgmt
+		Bugs mgmt
+		feature mgmt
+		task mgmt
+	Project mgmt
+	Agile mgmt
+	Service Desk
+
+	From Atlassion
+		Jira
+		Confluence
+		Bamboo
+		Trello
+
+	Dev in Java.
+		Platform ind
+
+	Version
+		Cloud
+		Hosted
+			- Demo
+
+Why Jira?
+
+Arch
+=================
+WEB - Java
+Backup - DB - ALL RDBMS
+TRIAL - h2.
+
+How to install Jira?
+	Pre - JRE
+	Download
+	Install
+	
+
+
+15.206.159.201
+ec-user
+key
+
+https://product-downloads.atlassian.com/software/jira/downloads/atlassian-jira-software-8.8.0-x64.bin
+
+  1  clear
+    2  ls
+    3  su -c "yum install java-1.8.0-openjdk-devel"
+    4  clear
+    5  ls
+    6  cd
+    7  ls
+    8  cd /opt/
+    9  ls
+   10  wget https://product-downloads.atlassian.com/software/jira/downloads/atlassian-jira-software-8.8.0-x64.bin
+   11  yum install wget -y
+   12  clear
+   13  wget https://product-downloads.atlassian.com/software/jira/downloads/atlassian-jira-software-8.8.0-x64.bin
+   14  clear
+   15  ls
+   16  chmod 755 atlassian-jira-software-8.8.0-x64.bin
+   17  clear
+   18  ls
+   19  ./atlassian-jira-software-8.8.0-x64.bin
+   20  history
+http://15.206.159.201:8080/
+devops
+devops123
+======================================
+Basic workflow in Jira for admin - First time
+	Authentication
+		Internal DB
+		LDAP
+	Authorization
+	- Adding users
+	- groups
+	- Permisions.
+
+	NOTIFICATION
+	
+======================================
+Basic workflow in Jira for User
+
+======================================
+Advance workflow in Jira for admin - Customization
+
+======================================
+Role of DevOps Engineer
+======================================
+Installation - No.
+Admini - yes
+		User mgmt
+		Project mgmt
+		Customization
+		Backcup & Restore
+Troubleshooting
+		Logs
+		Performance
+		Uptime
+Integration
+		GIT 		VS 	(github-gitlab-bitbucket)
+		repo			multiple repo
+		versioning		Sharing
+
+		Jenkins
+		===============
+		Git ---> Github --->
+		Dev(Commit) 
+			Not allowed - if message has not a valid jira ticket
+			Allowed - message has a valid jira ticket
+	
+Agile 
+============
+
+
+
+
+
+
+	
