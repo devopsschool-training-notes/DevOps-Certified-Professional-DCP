@@ -1,0 +1,395 @@
+What is Ansible?
+================================
+https://www.devopsschool.com/path/	
+	Deployment tool.
+https://www.devopsschool.com/top10tools/
+https://www.devopsschool.com/blog/top-5-configuration-management-tools/	
+	Config mgtm tool.
+	Written in Python
+	Release 
+		Ansible - CMD Based - Free - Open Source
+		Ansible Tower - - CMD Based + GUI - Paid + Plus Many Feature
+	by Redhat
+`	Version 
+		2.X
+	Ansible is Agent less.
+
+What is Config mgmt?
+===========================
+- Config of Server
+
+
+What is there in each Server?
+===========================
+resources				Config
+=============================================================
+
+Software
+	files
+	directory
+	services
+	package
+	bash
+	ps
+	yum
+	apt
+	script
+Hardware
+	Hyperviosors(Soft)
+			Ansible
+				CPU
+				RAM
+				HDD
+People 
+	user
+	group
+
+Processs
+	Policy
+
+
+
+
+Thus - Using Ansible, you can manage config of resource(s) in server(s)		
+			thats why we call it Ansible as a config mgmt tool.
+
+
+===========================================================================
+Why Ansible?
+-------------------------------------------------
+	Deployment Challenges....
+	Prodx.223.5.6 --> 100 BOXES
+	------------------------------------------
+	OS - 50 WINDOWS - 50 LINUX
+	WEB - 50 NGINX - 50 Apache
+	APP - 25 Tomcat - 25 Jboss - 25 DOTNET - 25 - Weblogic 
+	DB - 25 MYSQL - 25 MSSQL - 25 ORACLE - 25 PS
+	100s project specific changes. 
+	==========================================
+	1 Dep ---> 9 mins...
+	100 Dep ---> 9 mins.
+	----------
+	How to solve this prb?
+	----------------------
+	Parallel Deployment 
+	?????
+	SCRIPPTING - Ansible - Puppet - Chef
+	GUI - Octopus - UDeploy
+
+	
+	- Using PS - PS has multiple version
+	- Using Bash - PS has multiple version
+	--------------WE need platform independent tool.-----------------
+	Ansible
+
+
+	Java - python - C++ - Perl
+	-------------------------------------
+	Diff to learn - share - extend - test - debug 
+		Whereas i need to solve only Dep prb....
+		--- DOMAIN SPECFIC TOOL or Lang - scripting.
+	Ansible - Easy to learn - share - extend - test - debug for DOMAIN SPECFIC PrB.
+
+
+	IDEOMPOTENT
+	---------------------
+			1 Dep - 10 Step - 1 mins --> 10 mins.
+Tool without IDEOM				 -> 10 mins
+Tool with IDEOM
+			2 Dep - 10 Step - 1 Changes - 1 mins 
+
+	Consitent Change mgmt
+
+
+What is the architeture of Ansible? How it works!!!!
+============================================================
+Humen	---> Ansible Control Server(ACS-1) ------------> Ansible remote Server(ARS - Multiple)
+
+
+ACS					ARS
+--------------------------------------------------
+Ansible CMD				NOTHING
+LINUX					ANY
+64 BIT					ANY
+	--------------- WINDOWS -------> WINRM(HTTP)
+	------------------LINUX -------> SSH
+					WINDOWS -> DOTNET - PS - WINRM
+					LINUX -> PYTHON
+
+Component of ACS
+============================================================
+Ansible			----> Software which need to be installed.
+	Modules
+	Ansible Config file
+Inventory
+Playbook
+
+==============================================
+What is Module?
+----------------------------------
+	ONE UNIT OF WORK
+	Such as
+		copy
+		delete
+		install
+		service
+Where to find all Modules?
+https://docs.ansible.com/ansible/latest/modules/modules_by_category.html	
+=============================================
+What is Ansible Config file?
+/etc/ansible/ansible.cfg
+	You can control a behavior of Ansible.
+	100s of options...
+
+======================================
+What is Inventory?
+	List of server ips or hostname.
+	-- command line
+	-- file
+	-- directory
+	- script
+
+What is Playbook?
+=================================
+HAS Multiple PLAY
+
+What is Play?
+========================
+- Hosts: Where you want to deploy? [ THIS WOULD COME FROM iNVENTORY]
+- Task(S)
+	Module 1
+	Module 2
+	mODULE 3
+	mODULE 4444444
+
+What is my role in this???
+==========================================
+Ansible Playbook Developer - He would write-test-debug-extent Playbook -> role 
+				give to admin.
+Ansible Admins  - 
+			He would manger inventory - accesss - password
+			& Apply paybook 
+
+How to become a Java Dev?
+======================================
+JDK -> .java -> .Class ---> .jar ---> war --> OPS team/QA/
+	- Variable
+	- Operators
+	- Conditioning
+	- Looping
+	- functions	
+
+How to become a Ansible Dev?
+======================================
+Ansible -> .yaml(Playbook) ->  role  --> OPS team/QA/
+	- Variable
+	- Operators
+	- Conditioning
+	- Looping
+	- functions	
+
+Evolution of Programming Lang
+=================================
+Compiled --> Interpret -> Declarative 
+
+	using ADHOC command 
+		Do one task in ONE MACHINE(localhost)
+		Do one task in ONE REMOTE MACHINE
+		Do one task in MULTIPLE REMOTE MACHINES using Inventory
+		Do one task in MULTIPLE REMOTE MACHINES using group in Inventory
+	using Playbook(Program)
+		Do Multiple tasks(Playbook) in ONE MACHINE(localhost)
+		Do Multiple tasks(Playbook) in ONE REMOTE MACHINE
+		Do Multiple tasks(Playbook) in MULTIPLE REMOTE MACHINE using Inventory
+		Do Multiple tasks(Playbook) in MULTIPLE REMOTE MACHINE using group in Inventory
+		Do Multiple tasks(Playbook) in MULTIPLE REMOTE MACHINE using group of group in Inventory
+		Do Multiple tasks(Playbook) in MULTIPLE REMOTE MACHINE using environment directory Inventory 
+	using Role(Program)
+		Do One Role in in ONE MACHINE(localhost)
+		Do Multiple Roles in ONE REMOTE MACHINE
+		Do Multiple Roles in MULTIPLE REMOTE MACHINE using Inventory
+		Do Multiple Roles in MULTIPLE REMOTE MACHINE using group in Inventory
+		Do Multiple Roles in MULTIPLE REMOTE MACHINE using group of group in Inventory
+		Do Multiple Roles in MULTIPLE REMOTE MACHINE using environment directory Inventory
+
+
+
+ACS 
+==========================
+52.66.214.136
+ec2-user
+Key - 
+
+
+ARS
+=============================
+13.234.240.251
+13.233.165.170
+ec2-user
+Key - 
+
+
+How to install Ansible in RHEL/Centos?
+========================================
+https://www.devopsschool.com/blog/how-to-install-ansible-in-centos-7-rhel-7/
+[root@ip-172-31-31-66 ec2-user]# history
+    1  clear
+    2  ls
+    3  sudo yum install wget -y
+    4  wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+    5  yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+    6  sudo rpm -i epel-release-latest-7.noarch.rpm
+    7  sudo yum install ansible -y
+    8  ansible
+    9  ansible -v
+   10  ansible --version
+   11  history
+
+Undertand your Project Deployment Requirement
+============================================
+Convert Project Deployment Requirement into Psu Code (Steps)
+	Step 1
+		Has depend
+		Conditions
+		Looping
+	Step 2
+	Step 3
+	Step 4
+
+=================================================
+Setup a web server(httpd).
+	Step 1 - Install web server httpd.
+	Step 2 - Copy index.html to /var/www/html
+	Step 3 - Start a web server.
+
+===========================================================================
+	using ADHOC command using "ansible"
+		Do one task in ONE MACHINE(localhost)
+		Do one task in ONE REMOTE MACHINE
+		Do one task in MULTIPLE REMOTE MACHINES using Inventory
+		Do one task in MULTIPLE REMOTE MACHINES using group in Inventory
+
+ansible
+ansible -h
+---------------
+optional arguments
+Connection Options
+Privilege Escalation Options:
+
+Ansible <optional arguments> <Connection Options> <Privilege Escalation Options>
+ACS --> ARS
+
+ansible localhost -m file -a"path=index.html state=touch"
+ansible localhost -m yum -a"name=httpd state=installed"
+ansible localhost -m copy -a"dest=/var/www/html src=index.html"
+ansible localhost -m service -a"name=httpd state=started"
+
+
+ansible all -i 13.234.240.251,13.233.165.170, -m file -a"path=index.html state=touch" -u ec2-user --key-file=node.pem -b
+ansible all -i 13.234.240.251,13.233.165.170, -m yum -a"name=httpd state=installed" -u ec2-user --key-file=node.pem -b
+ansible all -i 13.234.240.251,13.233.165.170, -m copy -a"dest=/var/www/html src=index.html" -u ec2-user --key-file=node.pem -b
+ansible all -i 13.234.240.251,13.233.165.170, -m service -a"name=httpd state=started" -u ec2-user --key-file=node.pem -b
+
+
+ansible all -i 
+
+13.234.240.251,13.233.165.170,13.233.165.170,13.233.165.170,13.233.165.170,13.233.165.170,13.233.165.170,13.233.165.170,13.233.165.17
+
+0,13.233.165.170,13.233.165.170,13.233.165.170,13.233.165.170,13.233.165.170,13.233.165.170,13.233.165.170, -m yum -a"name=httpd 
+
+state=installed" -u ec2-user --key-file=node.pem -b
+
+[root@ip-172-31-31-66 ec2-user]# more inventory
+13.234.240.251
+13.233.165.170
+[root@ip-172-31-31-66 ec2-user]#
+
+
+ansible all -i inventory -m file -a"path=index.html state=touch" -u ec2-user --key-file=node.pem -b
+ansible all -i inventory -m yum -a"name=httpd state=installed" -u ec2-user --key-file=node.pem -b
+ansible all -i inventory -m copy -a"dest=/var/www/html src=index.html" -u ec2-user --key-file=node.pem -b
+ansible all -i inventory -m service -a"name=httpd state=started" -u ec2-user --key-file=node.pem -b
+
+
+ [root@ip-172-31-31-66 ec2-user]# more inventory
+[web]
+13.234.240.251
+13.233.165.170
+
+[db]
+3.4.4.4
+5.5.5.5
+[root@ip-172-31-31-66 ec2-user]#
+
+
+ansible web -i inventory -m file -a"path=index.html state=touch" -u ec2-user --key-file=node.pem -b
+ansible web -i inventory -m yum -a"name=httpd state=installed" -u ec2-user --key-file=node.pem -b
+ansible web -i inventory -m copy -a"dest=/var/www/html src=index.html" -u ec2-user --key-file=node.pem -b
+ansible web -i inventory -m service -a"name=httpd state=started" -u ec2-user --key-file=node.pem -b
+
+
+
+	using Playbook(Program)
+		Do Multiple tasks(Playbook) in ONE MACHINE(localhost)
+		Do Multiple tasks(Playbook) in ONE REMOTE MACHINE
+		Do Multiple tasks(Playbook) in MULTIPLE REMOTE MACHINE using Inventory
+		Do Multiple tasks(Playbook) in MULTIPLE REMOTE MACHINE using group in Inventory
+		Do Multiple tasks(Playbook) in MULTIPLE REMOTE MACHINE using group of group in Inventory
+		Do Multiple tasks(Playbook) in MULTIPLE REMOTE MACHINE using environment directory Inventory 
+
+----PRB------
+ansible web -i inventory -m file -a"path=index.html state=touch" -u ec2-user --key-file=node.pem -b
+ansible web -i inventory -m yum -a"name=httpd state=installed" -u ec2-user --key-file=node.pem -b
+ansible web -i inventory -m copy -a"dest=/var/www/html src=index.html" -u ec2-user --key-file=node.pem -b
+ansible web -i inventory -m service -a"name=httpd state=started" -u ec2-user --key-file=node.pem -b
+ansible web -i inventory -m file -a"path=index.html state=touch" -u ec2-user --key-file=node.pem -b
+ansible web -i inventory -m yum -a"name=httpd state=installed" -u ec2-user --key-file=node.pem -b
+ansible web -i inventory -m copy -a"dest=/var/www/html src=index.html" -u ec2-user --key-file=node.pem -b
+ansible web -i inventory -m service -a"name=httpd state=started" -u ec2-user --key-file=node.pem -b
+ansible web -i inventory -m file -a"path=index.html state=touch" -u ec2-user --key-file=node.pem -b
+ansible web -i inventory -m yum -a"name=httpd state=installed" -u ec2-user --key-file=node.pem -b
+ansible web -i inventory -m copy -a"dest=/var/www/html src=index.html" -u ec2-user --key-file=node.pem -b
+ansible web -i inventory -m service -a"name=httpd state=started" -u ec2-user --key-file=node.pem -b
+ansible web -i inventory -m file -a"path=index.html state=touch" -u ec2-user --key-file=node.pem -b
+ansible web -i inventory -m yum -a"name=httpd state=installed" -u ec2-user --key-file=node.pem -b
+ansible web -i inventory -m copy -a"dest=/var/www/html src=index.html" -u ec2-user --key-file=node.pem -b
+ansible web -i inventory -m service -a"name=httpd state=started" -u ec2-user --key-file=node.pem -b
+ansible web -i inventory -m file -a"path=index.html state=touch" -u ec2-user --key-file=node.pem -b
+ansible web -i inventory -m yum -a"name=httpd state=installed" -u ec2-user --key-file=node.pem -b
+ansible web -i inventory -m copy -a"dest=/var/www/html src=index.html" -u ec2-user --key-file=node.pem -b
+ansible web -i inventory -m service -a"name=httpd state=started" -u ec2-user --key-file=node.pem -b
+
+
+---
+- name: This sets up an httpd webserver
+  hosts: web
+  tasks:
+  - name: Install the httpd apps
+    yum: name=httpd
+  - name: start the httpd service
+    service: name=httpd state=started
+  - name: create a empty fle
+    file: dest=/opt/test.txt state=touch
+  - name: copy a file
+    copy: dest=/var/www/html/ src="index.html"
+
+ansible-playbook -i inventory -u ec2-user --key-file=node.pem -b play.yaml
+
+==========================================
+
+
+
+Assignment - 
+https://www.devopsschool.com/blog/ansible-adhoc-commands-lab-excercise-part-1/
+https://www.devopsschool.com/blog/ansible-playbook-lab-excercise-part-2/
+https://www.devopsschool.com/blog/ansible-playbook-lab-excercise-part-3/
+https://www.devopsschool.com/blog/ansible-windows-playbook-lab-excercise-part-4/
+https://www.devopsschool.com/blog/ansible-windows-adhoc-commands-lab-excercise-part-3/
+
+
+
+
+
+
+
+
