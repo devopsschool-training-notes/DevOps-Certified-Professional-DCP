@@ -1,0 +1,155 @@
+What is Jenkins?
+	Jenkins is a CI tool.
+	Free and Open source
+	Dev in JAVA
+	Powered by Community.
+	Each feature in jenkins - Comes from Plugins.
+	GUI based
+	version
+		Free
+		Cloudbees --> Jenkins(Free) + Paid Plugins
+What is CI?
+	Continous integration.
+
+Auto Build + Auto Testing + Immediate feedback.
+
+
+Code -> Analysis -> Build -> UT -> Pack -> Dep2Repo -> Depo2QA -> AT -> CC
+										Pass - release
+										Fail - Repeat
+-------------------------------------------------------------------------------------------------------
+Git --> Sonarqube --> Maven ->Junit -> Jar -> Nexus -> Ansible -> Sel -> Jacoco
+-------------------------------------------------------------------------------------------------------
+					Integration
+-------------------------------------------------------------------------------------------------
+					imm Feedback
+------------------------------------------------------------------------------------------------
+					Scheduling
+--------------------------------------------------------------------------------------------------
+				Jenkins
+					Continous Integrate with all tool.
+					Immediate feedback
+							Email
+							Chat
+							Dashboard
+
+=================================================================================
+Why Jenkins?
+	So many tools
+	So many Modules
+	Tools Integ - Process Integ
+	Imm Feedback.
+https://www.devopsschool.com/videos/387/complete-cicd-devops-implementation-from-scratch-using-jenkins-by-devopsschool/
+
+Other tools -
+	Bamboo
+	Teamcity
+	UBuild
+https://www.devopsschool.com/top10tools/
+
+======================================================
+jenkins Architecutre
+==============================================
+Human --> WEB --> NODE			other NODES
+	======================		====================
+		ONE Server		Distributed
+	======================		Load Balance
+	8080	  NA			Availability
+
+https://www.devopsschool.com/blog/jenkins-architecture-explained/
+
+======================================================
+How to install Jenkins?
+	Pre - JDK
+	
+https://www.devopsschool.com/tutorial/jenkins/
+https://www.devopsschool.com/tutorial/jenkins/jenkins-installation-and-configuration.html
+
+
+13.235.254.93
+
+
+How to Configure Jenkins?
+==============================================
+1 - Install all Dev tools plugins & tools in node
+2 - Setup SMTP server details
+3 - Chat 
+
+
+How to start working with Jenkins?
+=============================================================
+		Secret Formula
+=============================================================
+1. What is your tech?
+			JAVA
+2. Where is your source code?
+https://github.com/devops-school/helloworld-java-maven
+
+3. What is a builder?
+		maven
+4. Whom you want to sent notification?
+		devops@rajeshkumar.xyz
+5. How frequ this job should done?	
+		daily
+
+
+
+
+-------------------------------------------------------------------------------------------------------
+					Integration
+
+Pre - YOU MUST KNOW IN and out ABOUT THAT TOOL.
+
+In order to integrate any toSols.
+- 1 - You Install Tools Plugins.
+- 2 - Configure tools plugins.
+- 3 - Use it in Jobs
+-----------------------------------------
+SonarQube - For Code Analysis
+SonarQube Arch...
+
+Dev --> CodeScanner --> Code -> Reports --> SonarQube Server(DB) -> Dashboard
+
+SonarQube Server
+http://13.235.254.93:9000/
+
+Scannner
+
+Source Code
+https://github.com/devops-school/java-sonar-runner-simple
+
+
+------------------------------------------------------------------------------------------------
+					Scheduling
+--------------------------------------------------------------------------------------------------
+https://www.devopsschool.com/blog/how-to-schedule-and-trigger-a-jenkins-job-automatically/
+
+Installation and Config...
+Jobs Config
+tool integ
+Debuggsing
+Build failed - Troubleshooting.
+
+https://www.devopsschool.com/blog/if-a-linux-build-server-suddenly-starts-getting-slow-what-would-you-check/
+https://www.devopsschool.com/blog/if-a-linux-build-server-suddenly-starts-getting-slow-what-would-you-check/
+
+-------------------------------------------------------------------------------------------------
+					imm Feedback
+							Email
+							Chat
+							Dashboard
+								Build Pipeline
+								Pipeline
+
+
+
+
+curl 
+	
+http://13.235.254.93:8080/job/scan/build?delay=0sec
+
+
+
+							
+
+	
