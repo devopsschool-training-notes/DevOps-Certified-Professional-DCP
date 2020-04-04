@@ -1,0 +1,90 @@
+DCA - Docker -> Swarm
+CKA - Kubernetes -
+=======================
+What is Docker?
+	Container Mgmt tool.
+	Platform for container
+	RElease
+		CE - YES
+		EE
+	Written in Go
+	By Soloman  Hykes...
+
+What is tool?
+	To save time
+	To save cost
+	To improve eff*
+
+What is mgmt?
+	
+What is Container?
+	isolated lightweight APP run time env.
+	USer SPACe
+			1 MOUNT
+			1 Net
+			1 process map
+
+PHYSCIAL 			Virtulization		Container
+-------------------------
+1 APP - 100 APP			->
+1 - P Server - 100 P SERVER	->	100 VMS		1000 APp
+Waste - 85%			->	15%
+CPU+RAM+STO+LICE
+
+Most important qUESTIONS?
+==============================
+How to run App?
+	Cheaper
+	Faster
+	Better
+
+What are the components needed for running app?
+==================================================
+FILESYSTEM => NAMESPACE => KERNAL => OS => 1
+PROCESS MAP => NAMESPACE => KERNAL => OS => 1
+NETWORK => NAMESPACE => KERNAL => OS	=> 1
+USER SPACE => NAMESPACE => KERNAL => OS	=> N number
+
+PC - Personal Computing --> Humen being
+============================
+
+======================
+CPU -> CGROUPS => KERNAL => OS
+RAM -> CGROUPS => KERNAL => OS
+======================
+PERMISSION -> CAPABILLITY => KERNAL => OS
+
+
+
+
+
+
+Why Docker?
+
+How Docker Works!!! AKA Docker Architecture
+
+How to install Docker?
+
+Basic Workflow in Docker?
+
+
+
+
+Q 1 - 
+Why you run 100 App in 100 Server?
+Why not 1?
+
+Q 2- 
+What is NAMESPACE?
+
+Q 3 - 
+What is KERNAL 
+
+Q 4- -> 
+What is CGROUPS
+
+Q 5- -> 
+What is cAPABILITY IN kERNAL
+
+
+
