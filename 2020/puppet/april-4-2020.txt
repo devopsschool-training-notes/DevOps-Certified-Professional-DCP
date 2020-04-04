@@ -1,0 +1,248 @@
+What is Puppet?
+	Config mgmt tool.
+	Deployment tool
+	By Puppet
+	Written in RUby
+	rELEASE
+		FREE		- CMD line		puppet server
+		Enterprise	- CMD line + GUI	puppet enterprise
+
+What is Config?
+	---------
+	Server(S)
+
+what is manage?
+	ADD
+	EDIT
+	rEMOVE 
+
+What is the there in each server?
+	file
+	directory
+	service
+	package
+	user
+	group
+	batch
+	bash
+	ps
+	Using puppet, you manage a prop/CONFIG of resources of server at a large scale.
+	THATS WHY WE CAN CALL 
+	Puppet is Config mgmt tool.?
+
+Other tools
+	Ansible -> Puppet -> Chef -> Salt -> Cfengine		
+	
+
+Why we need Puppet?
+	- We need one tool which is platform inde
+	- Easy to learn - test - debug - extend - share
+	- IDeompotent
+	- Consistent server change mgmt
+
+Puppet Architecture?
+	Puppet Server			Puppet Agent
+	--- programs			Server2
+	Puppet Program			Server3
+	.pp				Server3
+=====================================
+Working with Puppet?
+
+Role 
+	Dev	A person who write pp
+	Admin	A person who apply pp in infra.
+
+How to become a Dev?
+	How to write .pp?
+============================================
+How to write a Puppet Program?
+---------------------------------------
+resoruce-type		ACTION( ensure)			PROPERTY==Attributes
+	file		A | D
+	directory
+	package		I | R | U
+	service		S | S | R
+	user		A | D | M
+	group
+	shell
+
+https://puppet.com/docs/puppet/5.5/type.html
+
+.pp
+---------------
+resoruce-type  title
+	ensure
+	attributes
+	provider(optional)
+
+resoruce-type  title
+	ensure
+	attributes
+	provider(optional)
+
+resoruce-type  title
+	ensure
+	attributes
+	provider(optional)
+
+resoruce-type  title
+	ensure
+	attributes
+	provider(optional)
+==================================
+Setup a server
+----------------------
+install httpd
+start a httpd
+create a file in /var/www/html/index.html with some content.
+
+
+file { '/opt/devops':
+  ensure => directory,               
+  owner => ec2-user
+}
+
+
+file { '/var/www/html/index.html':
+  ensure => present,               
+  owner => ec2-user,
+  content => "Welcome to DevOpsSchool.com Puppet class"
+}
+
+file { '/opt/devops/devopsschool.com':
+  ensure => present,               
+  owner => ec2-user,
+  content => "Welcome to DevOpsSchool.com Puppet class"
+}
+
+package { 'httpd':
+  ensure => installed
+}
+
+service { 'httpd':
+  ensure     => running
+}
+
+======================
+package { 'httpd':
+  ensure => installed
+}
+
+yum install httpd
+apt-get install httpd
+
+========================
+
+How to test my pp program?
+--------------
+puppet client aka puppet agent.
+=======================
+13.232.224.208	SERVER
+35.154.136.206	AGENT
+=======================
+
+What is Module?
+	Collection .pp
+	varialbles
+	template
+	files
+	etc
+How to create a module?
+$ puppet module generate devopsschool-web
+
+[root@ip-172-31-5-65 puppet]# tree
+.
+├── file1.pp
+└── web
+    ├── examples
+    │   └── init.pp
+    ├── Gemfile
+    ├── manifests		DIRECTORy -where ur pp resides.. init.pp woudl call default
+    │   └── init.pp
+    ├── metadata.json
+    ├── Rakefile
+    ├── README.md
+    └── spec
+        ├── classes
+        │   └── init_spec.rb
+        └── spec_helper.rb
+
+
+What is Class and Sub class?
+=======================================
+is a way to manage a resources.
+Bucket of resources dec...
+
+class web {
+}
+
+
+
+Subclass
+-------------
+Bucket of resources dec... -
+You can this from class...
+
+class web::webserver {
+}
+
+
+How to test my module?
+puppet apply -e "include web"
+
+class web {
+include web::webserver
+}
+
+class web::webserver {
+
+DB -> APP -> Config
+ps
+
+127.0.0.1  puppet.example.vm puppet localhost
+13.232.224.208 puppet.example.vm #public ip
+172.31.29.193 puppet.example.vm #private ip
+
+
+127.0.0.1  puppet.example.vm puppet localhost
+13.232.224.208 puppet.example.vm puppet #public ip
+172.31.29.193 puppet.example.vm #private ip
+
+https://puppet.example.vm/auth/reset?
+
+token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhcGlfdXNlciIsInN1YiI6IjUyMTQ4MWU2LWQ4YTktNDg4OS1hYzliLWYx
+
+MDgyZmQ3M2Y3ZiIsImV4cCI6MTU4NjA2NDczMSwiaWF0IjoxNTg1OTc4MzMxfQ.fi-QV_tV_td4q9aDJuhufAc99q2zBTVYEysS_YQr-qbjX-
+
+BbZk8qfsTusS8NMEEjCU0T6LCfTbyc45R-8hZl0R5uvUUU7pSt1NJ-bmF528fe_ngeZKp2fvKpBzi1DAwQ2Wj5xaaB04vw-
+
+p23ogrtESgU_qZzn84K4READ4pnyX5intc1W4Imhi4ms6CvFUUjuuL0fppVFFUHboLrPDHdAeZr5pe6rIbnwHBaV1M_bbavZ4um8Efr3EZJpA8q
+
+33cQt0L1-
+
+wi7k8GI4VBx9K71FSMBMmE087S4L1JDxkTXLSFa82nzk7A6iSKj7ltcrnJedyYUdSD_fFtovhOP7SYFLkbQk1khXXis7MCeRrSkYZjcJyLDZMm_
+
+lPgB-zroaNJ_bFWufMfVsKV3fso0SDGGsjEhCo4XXZkP2tul3t1WM10zAWl414FUB0pOWTA1Oksqpxe6AgLOJLm9Ld-9KCfj-
+
+jbqAIa1r0vPcpSf-G5u81lWVHJ84-UgHyJAv3fozXMrz7SGhFsARfwDEZOT5_VhsvtCAHEmTmR9HMOKYuBnAV8yH-rHvb85nWjaManc-dv-
+
+PWIGLbBJDu-qGE_Wy6CEOVywMPBevw6XcwS9OLj8qTgTjpX4JHQWU0EMWhzyiX9Vzv2t1bP0jRJTzaaQdZ_notnFMwbH44Ul_vFitwILbRM
+
+
+curl -k https://puppet.example.vm:8140/packages/current/install.bash | sudo bash
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
