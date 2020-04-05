@@ -60,12 +60,161 @@ PERMISSION -> CAPABILLITY => KERNAL => OS
 
 
 Why Docker?
+==========================
+- Utlizing more efficiently CPU - RAM - HD and avoid wastage of OS of virtualization.
+- Speed of Deployment
+- Docker is platform - Running a app in container across all machine is same and faster
+
 
 How Docker Works!!! AKA Docker Architecture
+=================================================
+
+Human -> Docker Client --REST API --> Docker Deamon --> ContainerD --> Kernal 
+	-----------------------------------------------								
+
+			DOCKER ENGINE					Namespaces
+									CGROUP
+									Capability
 
 How to install Docker?
+=============================
+13.233.224.94
+
+DOCKER NEEDS ROOT...
+or
+a USER HAS TO BE A PART OF GROUP CALLED "docker"
+
+https://www.devopsschool.com/tutorial/docker/install-config/index.html
+
+https://www.devopsschool.com/tutorial/docker/install-config/docker-install-commuityedition-centos-rhel.html
+  1  clear
+    2  ls
+    3  sudo yum install -y yum-utils device-mapper-persistent-data lvm2
+    4  clear
+    5  sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+    6  sudo yum install –y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+    7  sudo yum-config-manager --enable rhui-REGION-rhel-server-extras
+    8  sudo yum install -y docker-ce
+    9  sudo yum install docker-ce
+   10  sudo systemctl enable docker
+   11  sudo systemctl start docker
+   12  clear
+   13  docker
+   14  docker version
+   15  history
+docker info
+
 
 Basic Workflow in Docker?
+===================================================
+Human --> Client --> Server --> Check IMAGE of App in Localrepo --> If not found -> Download from Remote repo 
+
+to LR
+---------------------------------------------------------------------
+			To Create App container.
+
+Basic Components of Docker
+=================================
+Docker Engine - A Platform
+Docker Image
+		App runtime env fully independent.
+		Whatever you have in image - you see inside a container.
+		= BOOTfS(NO) + ROOTfs + APPfs 
+		
+Docker Registry and Repos
+		Registry = A place where you have so many Repos
+		Repos = You have one DOCKeR image.
+
+		PUBLIC
+			hub.docker.com
+			Google Registry
+			ECR
+		PVT
+			nexus
+			Artifactory
+			ECR
+	
+Docker Container
+		The moment you run Image - you get one container.
+		From one image - you can many container.
+		Inside a container you have - what you have in image
+		Usually - you run some app in container.
+
+LifeCycle of Container
+LifeCycle of vms
+===================================================
+pull -> create -> start -> stop -> restart -> pause -> unpause -> kill -> remove
+https://www.devopsschool.com/tutorial/docker/commands/index.html
+=========================
+pull -> create -> start	+ BECOME == RUN
+
+12  clear
+   13  docker
+   14  docker version
+   15  history
+   16  clear
+   17  docker info
+   18  docker info
+   19  clear
+   20  docker ps
+   21  docker ps
+   22  docker ps -a
+   23  docker images
+   24  docker info
+   25  clear
+   26  docker  images
+   27  docker pull jenkins
+   28  clear
+   29  docker images
+   30  docker ps -a
+   31  docker craete jenkins
+   32  docker create jenkins
+   33  docker ps -a
+   34  docker start jenkins
+   35  docker start 992f2a6db929
+   36  docker ps -a
+   37  docker stop 992f2a6db929
+   38  docker ps -a
+   39  docker restart 992f2a6db929
+   40  docker ps -a
+   41  clear
+   42  docker ps
+   43  docker stats
+   44  docker ps
+   45  docker pause 992f2a6db929
+   46  docker ps -a
+   47  docker stats
+   48  clear
+   49  docker unpause 992f2a6db929
+   50  docker stats
+   51  clear
+   52  ls
+   53  docker ps -a
+   54  docker kill 992f2a6db929
+   55  docker ps -a
+   56  docker ps
+   57  docker ps -a
+   58  docker rm 992f2a6db929
+   59  docker ps -a
+   60  cler
+   61  clear
+   62  clear
+   63  who
+   64  id
+   65  w
+   66  ps
+   67  clear
+   68  docker run jenkins
+   69  history
+ 1  clear
+    2  docker ps
+    3  docker run -d jenkins
+    4  docker ps
+    5  docker run -d jenkins
+    6  docker ps
+    7  clear
+    8  docker ps
+    9  history
 
 
 
