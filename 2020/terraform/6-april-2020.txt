@@ -1,0 +1,232 @@
+- Rajesh Kumar
+http://rajeshkumar.xyz/
+https://www.devopsschool.com/videos/
+
+What is Terraform?
+===========================
+A common tool for coding for infra/env which has multiple tool.
+	Infra as a coding
+	Which accept "Terraform Config Lang" script
+	Convert a TCL script to Tool specific format using PROVIDERS.
+
+	Written in Go.
+	By Hashicorp
+		Vagrant
+		Terraform
+		Consult
+		Vault
+	Ideompotent
+		
+	Create  + Update + Destroy
+	-------------------------------
+1	5 VM -> 5 Soft -> Start a service 
+2	5 VM -> 1 Soft ->
+	----------------------------
+
+
+The problem with DevOps?
+=============================
+https://www.devopsschool.com/path/
+	So many tools.
+	---
+	Dev -> QA -> Ops
+	-------------------
+	So Tools 
+	--------------------------
+	Integrate all tools of Dev -> QA -> Ops
+	=====================================
+	DevOps
+		Integrate everything
+		Automate everthying
+	========================================================
+
+
+How Terraform works!!!
+=
+Humen ->TCL -> Terraoform -> Providers[conversion] -> API Request -> Response.
+
+	Anything Created+Updated get stored in -> state file
+
+=================================================================================
+Terminology
+
+terraform
+providers
+terraform config lang
+===================================
+	
+
+How to install terraform?
+=========================================
+WORKSTATION - 13.232.35.126
+
+ 2  ls
+    3  wget https://releases.hashicorp.com/terraform/0.12.24/terraform_0.12.24_linux_amd64.zip
+    4  yum install wget -y
+    5  cd
+    6  clear
+    7  wget https://releases.hashicorp.com/terraform/0.12.24/terraform_0.12.24_linux_amd64.zip
+    8  clear
+    9  ls
+   10  yum install unipz -y
+   11  yum install unzip -y
+   12  clear
+   13  ls
+   14  unzip terraform_0.12.24_linux_amd64.zip
+   15  clear
+   16  ls
+   17  chmod 755 terraform
+   18  ls
+   19  echo $PATH
+   20  cp terraform /usr/bin
+   21  clear
+   22  ls
+   23  rm -rf terraform terraform_0.12.24_linux_amd64.zip
+   24  clear
+   25  ls
+   26  terraform
+   27  history
+
+
+How to store TCL?
+	.tf
+
+Is there any files?
+	any but while running it accept inputs from all .tf of that directory and merge it together.
+
+
+Basic workflow working with Terraform?
+https://www.devopsschool.com/blog/terraform-basics-workflow-loop-explained/
+
+What is providers?
+
+Where to get all list of providers supported by terraform?
+https://www.terraform.io/docs/providers/index.html
+aws
+github
+
+================================================================
+How to write a terraform script?
+===================================
+Write a requirement....
+------------------------------
+
+Create a ec2-instance
+	install git
+	install java
+	clone https://github.com/devops-school/helloworld-java-maven
+
+
+PROVIDER	Resource			Argument Reference
+aws
+	resources1 aka aws_instance
+						Argument1
+						Argument
+						Argument
+	resources2
+	resources3000
+github
+	resources1
+	resources10
+puppet
+azure
+gc
+================================================
+
+provider "aws" {
+  region     = ""
+  access_key = ""
+  secret_key = ""
+}
+
+
+provider "github" {
+  token        = ""
+  organization = "devopsschool-lab-exercise"
+}
+
+
+resource "aws_instance" "web" {
+  ami           = "ami-5b673c34"
+  instance_type = "t2.micro"
+
+  tags = {
+    Name = "HelloWorld"
+  }
+}
+
+
+resource "aws_instance" "web1" {
+  ami           = "ami-5b673c34"
+  instance_type = "t2.micro"
+
+  tags = {
+    Name = "HelloWorld"
+  }
+}
+
+
+
+resource "github_repository" "example" {
+  name        = "example-test1"
+  description = "My awesome codebase"
+
+  private = false
+
+}
+
+
+resource "github_repository" "example1" {
+  name        = "example-test2"
+  description = "My awesome codebase"
+
+  private = false
+
+}
+
+
+
+PROVIDER
+	Resource
+		Argument
+		Connetion
+		remote-exec Provisonar
+
+
+Provisonar
+==================================
+file		The file provisioner is used to copy files or directories from the machine executing Terraform 
+
+to the newly created resource.	
+local-exec	- RUN SOME COMMAND | SCRIPT BUT Before create a resource in WORKSTATION
+remote-exec	- RUN SOME COMMAND | SCRIPT 
+
+- create a ec2-instance
+	with key
+	with security group
+===============================================================================
+variable
+=========================
+https://www.devopsschool.com/tutorial/terraform/
+https://www.devopsschool.com/blog/terraform-variables-complete-reference-guide/
+
+resource "aws_instance" "web1" {
+  ami           = "ami-5b673c34"
+  instance_type = "t2.micro"
+  count = 5
+
+  tags = {
+    Name = "HelloWorld-${local.count}"
+  }
+}
+
+
+================================
+null resources
+	will modify existing resources 
+
+
+
+
+
+	
