@@ -215,9 +215,260 @@ pull -> create -> start	+ BECOME == RUN
     7  clear
     8  docker ps
     9  history
+=================================================
+35.154.250.35
+=========================================
+https://www.devopsschool.com/tutorial/docker/commands/index.html
 
 
+What is an Image?
+-----------------------------
+FILESYSTEM
+	BOOTFS - KERNAL
+	ROOTFS - OS (APP ON TOP OF KERNAL)
+	APPFS ->	
+=============================================
+Image - ROOTFS + APPFS
+============================================
+Image is combination of Layers and Each layer is FS.
+Bottom layer is ROOTFS. On Top of APPFS
+===================================================
+Each layer of image is RO.
+Each Layer has their parent layers.
+=================================================
+What happens when you create a container from ONE image?
+	One Merge layer gets created - RW
+		merged - This is result of all layer merging "Diff" dir. 
+		Diff -  Any file you write - its gets created in work diff dir but same time, it gets merge to 
 
+merged dir.   
+
+===================================
+Who is DOING Dynamic merging???
+	UNION MOUNTS.
+
+GIT - SHA1
+DOCKER - SHA256
+===================================================================
+While Merging - If conflict occuer - TOP/LAST layer would win.
+
+When you stop a container - Only merge dir of container layer get delete and unmounted.
+
+
+How to create image?
+=================================
+2 - Method  
+1. Using Existing Container
+2. using Dockerfile.
+===============================================
+1. Using Existing Container
+=======================================
+ubuntu -> git
+
+
+284  clear
+  285  docker ps
+  286  docker ps
+  287  docker ps
+  288  docker exec 68149d7cf1bd more
+  289  docker exec 68149d7cf1bd more /var/jenkins_home/secrets/initialAdminPassword
+  290  docker ps
+  291  docker attach ef1e7ff73c6c
+  292  clear
+  293  docker stats
+  294  docker stats ef1e7ff73c6c
+  295  clear
+  296  docker top
+  297  docker ps
+  298  docker top ef1e7ff73c6c
+  299  ps -eaf | grep docker
+  300  clear
+  301  docker events
+  302  clear
+  303  docker ps
+  304  docker stop ef1e7ff73c6c 68149d7cf1bd
+  305  docker stop $(docker ps -a -q)
+  306  docker rm $(docker ps -a -q)
+  307  cleatr
+  308  clar
+  309  clear
+  310  docker ps -a
+  311  docker images
+  312  docker rmi jenkins
+  313  clear
+  314  ls
+  315  cd /var/lib/docker
+  316  ls
+  317  docker info
+  318  clear
+  319  ls
+  320  cd overlay2
+  321  ls
+  322  docker rim ubuntu
+  323  docker rmi ubuntu
+  324  clear
+  325  ls
+  326  docker pull ubuntu
+  327  ls
+  328  docker inspect ubuntu
+  329  clear
+  330  ls
+  331  ls
+  332  clear
+  333  tree
+  334  yum install tree -y
+  335  clear
+  336  tree
+  337  clear
+  338  ls
+  339  cd 192040a90928178cbab8c423bb87e946e3db5f5a4abeebc75a27effda76c1416
+  340  ls
+  341  cd work
+  342  ls
+  343  cd ..
+  344  ls
+  345  cd diff
+  346  ls
+  347  clear
+  348  ls
+  349  du -sh --max-depth=1
+  350  du -h --max-depth=1
+  351  cd ..
+  352  ls
+  353  ccd ..
+  354  cd ..
+  355  clear
+  356  du -h --max-depth=1
+  357  cd ./97c8c57c5c60e1af1a5b03e0b9a3556fefaabcb8477a4f73b685f82581725467
+  358  ls
+  359  cd diff/
+  360  clear
+  361  ls
+  362  clear
+  363  docker images
+  364  clear
+  365  cd ..
+  366  ls
+  367  cd ..
+  368  ls
+  369  docker ps
+  370  df -kh
+  371  docker stop ac88ad7edc13
+  372  clear
+  373  ls
+  374  cd 0d39abdd9462785708ce5a6232373436647142d4089cc329474eab2fa016a9c5
+  375  ls
+  376  df -kh
+  377  clear
+  378  ls
+  379  cd diff
+  380  ls
+  381  cd opt/
+  382  ls
+  383  cd ..
+  384  ls
+  385  cd ..
+  386  ls
+  387  cd ..
+  388  ls
+  389  clear
+  390  clear
+  391  ls
+  392  docker ps -a
+  393  docker rm ac88ad7edc13
+  394  ls
+  395  clear
+  396  docker images
+  397  docker history ubuntu
+  398  clear
+  399  ls
+  400  docker run -itd ubuntu
+  401  docker ps
+  402  docker attach 5e7d4dcc291a
+  403  clear
+  404  ls
+  405  git
+  406  docker ps
+  407  docker exec 5e7d4dcc291a git
+  408  clear
+  409  ls
+  410  docker ps -a
+  411  docker commit -m"ub-git" -a"Rajesh kumar" 5e7d4dcc291a ub-git
+  412  ls
+  413  clear
+  414  ls
+  415  docker images
+  416  docker history ub-git
+  417  clear
+  418  ls -lrt
+  419  cd 24a67f8c545d3a562d23d1cbc4eb84f194ddbdf5f3176c4b054d40ac92166c96
+  420  cler
+  421  ls
+  422  clear
+  423  ls
+  424  cd diff
+  425  ls
+  426  history
+
+ 276  ls
+  277  docker ps
+  278  docker logs 68149d7cf1bd
+  279  watch docker logs 68149d7cf1bd
+  280  watch docker logs 68149d7cf1bd
+  281  ls
+  282  docke rps
+  283  docker ps
+  284  docker logs ef1e7ff73c6c
+  285  watch docker logs ef1e7ff73c6c
+  286  ckear
+  287  clear
+  288  docker run -d ubuntu
+  289  68149d7cf1bd
+  290  clear
+  291  docker ps
+  292  docker ps -a
+  293  cd /var/lib/docker
+  294  ls
+  295  cd overlay2/
+  296  cleatr
+  297  ls
+  298  clear
+  299  ls
+  300  docker run -itd ubuntu
+  301  docker ps
+  302  ls
+  303  du -sh 0d39abdd9462785708ce5a6232373436647142d4089cc329474eab2fa016a9c5
+  304  clear
+  305  ls
+  306  du -sh 0d39abdd9462785708ce5a6232373436647142d4089cc329474eab2fa016a9c5-init
+  307  clear
+  308  ls
+  309  cd 0d39abdd9462785708ce5a6232373436647142d4089cc329474eab2fa016a9c5
+  310  ls
+  311  clear
+  312  ls
+  313  df -kh
+  314  clear
+  315  ls
+  316  cd ..
+  317  ls
+  318  docker ps
+  319  docker exec ac88ad7edc13 touch /opt/devopsschoo.txt
+  320  find . -name devopsschoo.txt
+  321  clear
+  322  ls
+  323  cd 0d39abdd9462785708ce5a6232373436647142d4089cc329474eab2fa016a9c5
+  324  ls
+  325  cd diff
+  326  ls
+  327  cd opt
+  328  ls
+  329  ls
+  330  clear
+
+
+What is UNION MOUNTS.?
+==========================
 
 Q 1 - 
 Why you run 100 App in 100 Server?
@@ -235,5 +486,4 @@ What is CGROUPS
 Q 5- -> 
 What is cAPABILITY IN kERNAL
 
-
-
+What is SHA256?
