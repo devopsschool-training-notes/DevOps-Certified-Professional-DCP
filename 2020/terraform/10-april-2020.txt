@@ -1,0 +1,85 @@
+Terraform Advance Workflow loop explained!!!
+Terraform Variables Complete Reference
+Terraform Modules Tutorials and Complete Guide
+Terraform Implicit and Explicit Dependencies
+Terraform workspace explained!!!
+How to do Looping/Iterations in Terraform?
+How to do Conditioning in Terraform?
+How to destroy one specific resource from TF file in Terraform?
+===================================
+
+provider "github" {
+  token        = "9878a30086b66ed41588b1571904427e122d4acb"
+  organization = "devopsschool-lab-exercise"
+}
+
+
+resource "github_repository" "example" {
+  name        = "example-test2"
+  description = "My awesome codebase"
+
+  private = false
+
+}
+
+variable "reponame" {
+  type = string
+  description = "This is for demo of string variable"
+  default = "day3-broad"
+}
+
+# using for-each
+output "name-var" {
+  value = = "${var.reponame}"
+}
+
+output "instance_ip_addr" {
+  value = github_repository.example.name
+}
+
+
+variable myname{}
+
+resource "github_repository" "example" {
+  name        = "${var.myname}"
+  description = "My awesome codebase"
+  private = false
+}
+
+
+myname = "terraform-var-terraform-tfvars"
+
+What is Module?
+=========================
+Module is collection of .tf and tfvars and outout.tf BUT into one dir.
+
+Every Terraform is is main module.
+				SUB MODULE 1
+				SUB MODULE 2
+				SUB MODULE 3
+-------------------------------
+TYPES OF Module
+	- Self	
+	- from community
+		
+
+
+
+
+==============================================================
+taint and updating
+interpolation
+output
+maps
+lookups
+workspaces
+null resource local-exec
+random id
+data 
+template files
+functions
+troubleshooting
+plugins
+packer, jenkins and ansible
+
+=========================================
