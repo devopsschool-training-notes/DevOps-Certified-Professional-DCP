@@ -1,0 +1,1097 @@
+5th day
+==================
+How to make docker image
+====================================
+1. Using Existing Container
+
+2. Dockerfile.
+LIST OF INTRUCTIONS....
+
+FROM ubuntu
+MAINTAINER Rajesh kumar DevOps@Rajeshkumar.xyz
+RUN apt-get update
+RUN apt-get install openjdk-8-jre -y
+RUN apt-get install nginx -y
+ENV JAVA_HOME=/opt/java
+
+docker build -t ub-docfile-ng-java .
+
+
+FROM ubuntu
+MAINTAINER Rajesh kumar DevOps@Rajeshkumar.xyz
+RUN apt-get update && apt-get install openjdk-8-jre -y && apt-get install nginx -y
+ENV JAVA_HOME=/opt/java
+
+RULES of Dockerfile
+==================================
+EAch line of Dockerfile is NEW LAYER.
+Each layer parent is rootfs [FROM]
+
+
+FROM ubuntu
+MAINTAINER Rajesh kumar DevOps@Rajeshkumar.xyz
+RUN touch /opt/rajesh1.txt
+RUN touch /opt/rajesh2.txt
+RUN touch /opt/rajesh3.txt
+
+
+FROM ubuntu
+MAINTAINER Rajesh kumar DevOps@Rajeshkumar.xyz
+RUN apt-get update
+RUN touch /opt/rajesh1.txt
+RUN touch /opt/rajesh2.txt
+RUN touch /opt/rajesh3.txt
+ENV JAVA_HOME=/opt/raju
+RUN apt-get install unzip -y
+COPY  terraform_0.12.24_linux_amd64.zip /opt/
+
+docker build -t ub-docfile-ng-java -f doc1 .
+docker build -t ub-docfile-ng-java -f doc2 .
+
+https://github.com/jenkinsci/docker/blob/587b2856cd225bb152c4abeeaaa24934c75aa460/Dockerfile
+==============================================================
+How to make PID 1?
+==========================================
+CMD
+	CAN BE REPLACEd
+ENTRYPOINT
+	CAN NOT BE REPLACEd
+	CMD Specified on the ENTRYPOINT get added a paramete to the entrypoint.
+
+ENTRYPOINT echo rajesh
+
+docker run image fff
+	echo rajesh fff
+
+
+CMD VS ENTRYPOINT
+=============================================
+How to share images?
+	using tar file
+	using docker hub
+	using pvt repo...
+
+
+
+ 35  docker  images
+   36  docker pull jenkins
+   37  clear
+   38  docker images
+   39  docker ps -a
+   40  docker craete jenkins
+   41  docker create jenkins
+   42  docker ps -a
+   43  docker start jenkins
+   44  docker start 992f2a6db929
+   45  docker ps -a
+   46  docker stop 992f2a6db929
+   47  docker ps -a
+   48  docker restart 992f2a6db929
+   49  docker ps -a
+   50  clear
+   51  docker ps
+   52  docker stats
+   53  docker ps
+   54  docker pause 992f2a6db929
+   55  docker ps -a
+   56  docker stats
+   57  clear
+   58  docker unpause 992f2a6db929
+   59  docker stats
+   60  clear
+   61  ls
+   62  docker ps -a
+   63  docker kill 992f2a6db929
+   64  docker ps -a
+   65  docker ps
+   66  docker ps -a
+   67  docker rm 992f2a6db929
+   68  docker ps -a
+   69  cler
+   70  clear
+   71  clear
+   72  who
+   73  id
+   74  w
+   75  ps
+   76  clear
+   77  docker run jenkins
+   78  history
+   79  docker ps
+   80  clear
+   81  ls
+   82  docker ps
+   83  docker inspect 6f3bdad3ce9e
+   84  clear
+   85  curl http://172.17.0.2:8080
+   86  curl http://172.17.0.2:8080
+   87  curl http://172.17.0.2:8080
+   88  docker ps
+   89  clear
+   90  ps -eaf | grep docker
+   91  ps -eaf
+   92  clear
+   93  docker ps
+   94  docker ps -a
+   95  docker stop 6f3bdad3ce9e
+   96  docker ps -a
+   97  docker ps
+   98  clear
+   99  docker ps
+  100  docker ps -a
+  101  docker start 6f3bdad3ce9e
+  102  clear
+  103  docke rps
+  104  docker ps
+  105  clear
+  106  docke rps
+  107  docker ps
+  108  docker exec 6f3bdad3ce9e ls
+  109  docker exec 6f3bdad3ce9e ps
+  110  clear
+  111  docker exec 6f3bdad3ce9e ps
+  112  docker exec 6f3bdad3ce9e df
+  113  docker exec 6f3bdad3ce9e ffffss
+  114  who
+  115  id
+  116  w
+  117  clear
+  118  ps
+  119  clear
+  120  docker ps
+  121  docker exec -it 6f3bdad3ce9e /bin/bash
+  122  ps
+  123  tty
+  124  kill -9 1919
+  125  kill -9 1898
+  126  clear
+  127  ps
+  128  ps -eaf
+  129  c
+  130  clear
+  131  docker ps
+  132  docker exec 6f3bdad3ce9e ps -eaf
+  133  clear
+  134  docker ps
+  135  docker attach 6f3bdad3ce9e
+  136  history
+  137  clear
+  138  clear
+  139  docker ps
+  140  docker ps -a
+  141  docker rm $(docker ps -a -q)
+  142  clear
+  143  docker ps -a
+  144  ps -eaf | grep docker
+  145  docker run -d jenkins
+  146  docker ps -a
+  147  ps -eaf | grep docker
+  148  docker run -d jenkins
+  149  ps -eaf | grep docker
+  150  clear
+  151  ps -eaf | grep docker
+  152  ps -eaf | grep 770
+  153  cear
+  154  clear
+  155  docker ps -a
+  156  df -kh
+  157  docker run -d jenkins
+  158  df -kh
+  159  clear
+  160  df -kh
+  161  cd /var/lib/docker/overlay2/b6da69d8c21e2fe1acb052529bd8d21f570ddd4e302e2bd4255f7a37e4286b74/merged
+  162  ls
+  163  clear
+  164  ls
+  165  clear
+  166  docker ps
+  167  docker exec c66ac1dbc55f ls /
+  168  clear
+  169  docker exec c66ac1dbc55f ls /
+  170  docker ps
+  171  clear
+  172  docker exec 1d1ad9bf705b ls /
+  173  docker exec 1d1ad9bf705b mkdir /rajesh
+  174  docker exec 1d1ad9bf705b sudo mkdir /rajesh
+  175  clear
+  176  docker exec 1d1ad9bf705b mkdir /tmp/rajesh
+  177  history
+  178  clear
+  179  docker exec 1d1ad9bf705b ls /tmp/
+  180  docker ps
+  181  docker exec c66ac1dbc55f ls /tmp/
+  182  clear
+  183  docker ps
+  184  docker inspect c66ac1dbc55f | grep -i ip
+  185  docker inspect 1d1ad9bf705b | grep -i ip
+  186  clear
+  187  docker ps
+  188  docker exec c66ac1dbc55f ps -eaf
+  189  docker exec 1d1ad9bf705b ps -eaf
+  190  history
+  191  clear
+  192  ifconfig
+  193  c
+  194  clear
+  195  docker ps
+  196  docker inspect 1d1ad9bf705b | grep -i ip
+  197  clear
+  198  ping 172.17.0.3
+  199  docker os
+  200  clear
+  201  docker ps
+  202  docker stop $(docker ps -a -q)
+  203  docker rm $(docker ps -a -q)
+  204  clear
+  205  docker run -d -p 8080:8080 jenkins
+  206  docker ps
+  207  docker run -d jenkins
+  208  docker ps
+  209  docker run -d -p 8080:8080 jenkins
+  210  docker run -d -p 8090:8080 jenkins
+  211  docker ps
+  212  history
+  213  clear
+  214  docker ps
+  215  docker stop $(docker ps -a -q)
+  216  docker rm $(docker ps -a -q)
+  217  clear
+  218  docker ps
+  219  docker images
+  220  docker run ubuntu
+  221  clear
+  222  docker ps
+  223  docker ps -a
+  224  ls
+  225  ls &
+  226  bg
+  227  clear
+  228  docker ps
+  229  docker ps -a
+  230  docker run -it ubuntu
+  231  docker ps -a
+  232  clear
+  233  ls
+  234  docker run -itd ubuntu
+  235  docker ps
+  236  ls
+  237  touch devopsschool.txt
+  238  cd
+  239  ls
+  240  touch devopsschool.txt
+  241  ls
+  242  docker cp devopsschool.txt 1aa117f8cbff:/opt
+  243  docker exec 1aa117f8cbff ls /opt
+  244  clear
+  245  ls
+  246  rm -rf devopsschool.txt
+  247  ls
+  248  docker cp 1aa117f8cbff:/opt/devopsschool.txt .
+  249  ls
+  250  history
+  251  clear
+  252  docker ps
+  253  docker diff 1aa117f8cbff
+  254  docker attach 1aa117f8cbff
+  255  clear
+  256  docker ps
+  257  docker diff 1aa117f8cbff
+  258  docker ps
+  259  docker ps -a
+  260  clear
+  261  docker ps
+  262  docker ports 1aa117f8cbff
+  263  docker port 1aa117f8cbff
+  264  docker run -d -p 8080:8080 jenkins
+  265  docker port 68149d7cf1bd6f8566743a7be9b808f9c9898a386f6cf5a3803ec65d8b515c4b
+  266  history
+  267  clear
+  268  docker ps
+  269  docker rename 68149d7cf1bd dev1
+  270  docker ps
+  271  docker run -itd --name=dev2 ubuntu
+  272  docker ps
+  273  clear
+  274  ps -eaf | grep docker
+  275  clear
+  276  docker info
+  277  clear
+  278  docker ps
+  279  docker ps - a
+  280  docker ps -a
+  281  clear
+  282  docker ps -a
+  283  docker start ef1e7ff73c6c  68149d7cf1bd
+  284  clear
+  285  docker ps
+  286  docker ps
+  287  docker ps
+  288  docker exec 68149d7cf1bd more
+  289  docker exec 68149d7cf1bd more /var/jenkins_home/secrets/initialAdminPassword
+  290  docker ps
+  291  docker attach ef1e7ff73c6c
+  292  clear
+  293  docker stats
+  294  docker stats ef1e7ff73c6c
+  295  clear
+  296  docker top
+  297  docker ps
+  298  docker top ef1e7ff73c6c
+  299  ps -eaf | grep docker
+  300  clear
+  301  docker events
+  302  clear
+  303  docker ps
+  304  docker stop ef1e7ff73c6c 68149d7cf1bd
+  305  docker stop $(docker ps -a -q)
+  306  docker rm $(docker ps -a -q)
+  307  cleatr
+  308  clar
+  309  clear
+  310  docker ps -a
+  311  docker images
+  312  docker rmi jenkins
+  313  clear
+  314  ls
+  315  cd /var/lib/docker
+  316  ls
+  317  docker info
+  318  clear
+  319  ls
+  320  cd overlay2
+  321  ls
+  322  docker rim ubuntu
+  323  docker rmi ubuntu
+  324  clear
+  325  ls
+  326  docker pull ubuntu
+  327  ls
+  328  docker inspect ubuntu
+  329  clear
+  330  ls
+  331  ls
+  332  clear
+  333  tree
+  334  yum install tree -y
+  335  clear
+  336  tree
+  337  clear
+  338  ls
+  339  cd 192040a90928178cbab8c423bb87e946e3db5f5a4abeebc75a27effda76c1416
+  340  ls
+  341  cd work
+  342  ls
+  343  cd ..
+  344  ls
+  345  cd diff
+  346  ls
+  347  clear
+  348  ls
+  349  du -sh --max-depth=1
+  350  du -h --max-depth=1
+  351  cd ..
+  352  ls
+  353  ccd ..
+  354  cd ..
+  355  clear
+  356  du -h --max-depth=1
+  357  cd ./97c8c57c5c60e1af1a5b03e0b9a3556fefaabcb8477a4f73b685f82581725467
+  358  ls
+  359  cd diff/
+  360  clear
+  361  ls
+  362  clear
+  363  docker images
+  364  clear
+  365  cd ..
+  366  ls
+  367  cd ..
+  368  ls
+  369  docker ps
+  370  df -kh
+  371  docker stop ac88ad7edc13
+  372  clear
+  373  ls
+  374  cd 0d39abdd9462785708ce5a6232373436647142d4089cc329474eab2fa016a9c5
+  375  ls
+  376  df -kh
+  377  clear
+  378  ls
+  379  cd diff
+  380  ls
+  381  cd opt/
+  382  ls
+  383  cd ..
+  384  ls
+  385  cd ..
+  386  ls
+  387  cd ..
+  388  ls
+  389  clear
+  390  clear
+  391  ls
+  392  docker ps -a
+  393  docker rm ac88ad7edc13
+  394  ls
+  395  clear
+  396  docker images
+  397  docker history ubuntu
+  398  clear
+  399  ls
+  400  docker run -itd ubuntu
+  401  docker ps
+  402  docker attach 5e7d4dcc291a
+  403  clear
+  404  ls
+  405  git
+  406  docker ps
+  407  docker exec 5e7d4dcc291a git
+  408  clear
+  409  ls
+  410  docker ps -a
+  411  docker commit -m"ub-git" -a"Rajesh kumar" 5e7d4dcc291a ub-git
+  412  ls
+  413  clear
+  414  ls
+  415  docker images
+  416  docker history ub-git
+  417  clear
+  418  ls -lrt
+  419  cd 24a67f8c545d3a562d23d1cbc4eb84f194ddbdf5f3176c4b054d40ac92166c96
+  420  cler
+  421  ls
+  422  clear
+  423  ls
+  424  cd diff
+  425  ls
+  426  history
+  427  clear
+  428  ls
+  429  docker ps
+  430  docker logs 68149d7cf1bd
+  431  watch docker logs 68149d7cf1bd
+  432  watch docker logs 68149d7cf1bd
+  433  ls
+  434  docke rps
+  435  docker ps
+  436  docker logs ef1e7ff73c6c
+  437  watch docker logs ef1e7ff73c6c
+  438  ckear
+  439  clear
+  440  docker run -d ubuntu
+  441  68149d7cf1bd
+  442  clear
+  443  docker ps
+  444  docker ps -a
+  445  cd /var/lib/docker
+  446  ls
+  447  cd overlay2/
+  448  cleatr
+  449  ls
+  450  clear
+  451  ls
+  452  docker run -itd ubuntu
+  453  docker ps
+  454  ls
+  455  du -sh 0d39abdd9462785708ce5a6232373436647142d4089cc329474eab2fa016a9c5
+  456  clear
+  457  ls
+  458  du -sh 0d39abdd9462785708ce5a6232373436647142d4089cc329474eab2fa016a9c5-init
+  459  clear
+  460  ls
+  461  cd 0d39abdd9462785708ce5a6232373436647142d4089cc329474eab2fa016a9c5
+  462  ls
+  463  clear
+  464  ls
+  465  df -kh
+  466  clear
+  467  ls
+  468  cd ..
+  469  ls
+  470  docker ps
+  471  docker exec ac88ad7edc13 touch /opt/devopsschoo.txt
+  472  find . -name devopsschoo.txt
+  473  clear
+  474  ls
+  475  cd 0d39abdd9462785708ce5a6232373436647142d4089cc329474eab2fa016a9c5
+  476  ls
+  477  cd diff
+  478  ls
+  479  cd opt
+  480  ls
+  481  ls
+  482  clear
+  483  history
+  484  clear
+  485  terraform
+  486  cd
+  487  wget 13.233.197.246
+  488  wget https://releases.hashicorp.com/terraform/0.12.24/terraform_0.12.24_linux_amd64.zip
+  489  yum install wget -y
+  490  clear
+  491  ls
+  492  wget https://releases.hashicorp.com/terraform/0.12.24/terraform_0.12.24_linux_amd64.zip
+  493  clear
+  494  ls
+  495  yum install unzip -y
+  496  clear
+  497  ls
+  498  unzip terraform_0.12.24_linux_amd64.zip
+  499  clear
+  500  ls
+  501  echo $PATH
+  502  mv terraform /usr/bin
+  503  clear
+  504  terraform
+  505  clear
+  506  mkdir first
+  507  cd first/
+  508  clear
+  509  l
+  510  clea
+  511  clear
+  512  ls
+  513  vi providers.tf
+  514  vi github_res.tf
+  515  ls
+  516  clear
+  517  ls
+  518  clear
+  519  ls
+  520  terrafor validate
+  521  terraform validate
+  522  clea
+  523  terraform init
+  524  clear
+  525  terraform init
+  526  clear
+  527  terraform validate
+  528  terraform providers
+  529  terraform graph
+  530  terraform graph -h
+  531  clear
+  532  ls
+  533  clear
+  534  ls
+  535  terraform plan
+  536  clear
+  537  terraform apply
+  538  clear
+  539  terraform apply -h
+  540  clear
+  541  terraform apply -auto-approve
+  542  ls
+  543  terraform show
+  544  clear
+  545  ls
+  546  vi github_res.tf
+  547  vi output.tf
+  548  terraform validate
+  549  vi output.tf
+  550  terraform validate
+  551  terraform providers
+  552  terraform plan
+  553  terraform show
+  554  terraform destroy
+  555  terraform show
+  556  clear
+  557  terraform plan
+  558  terraform apply
+  559  terraform show
+  560  terraform output
+  561  clear
+  562  ls -la
+  563  yum install tree -f
+  564  clear
+  565  yum install tree -y
+  566  tree
+  567  cd .terraform/
+  568  tree
+  569  cd ..s
+  570  ;c
+  571  clear
+  572  ls
+  573  cd ..
+  574  ls
+  575  clear
+  576  ls
+  577  vi output.tf
+  578  teraform validate
+  579  terraform validate
+  580  terraform apply
+  581  terraform output
+  582  clear
+  583  ls -la
+  584  clear
+  585  ls
+  586  export TF_VAR_myname
+  587  echo $TF_VAR_myname
+  588  echo $TF_VAR_myname=rajesh
+  589  echo $TF_VAR_myname
+  590  export $TF_VAR_myname=rajesh
+  591  export TF_VAR_myname=rajesh
+  592  clear
+  593  export TF_VAR_myname=rajesh
+  594  export $TF_VAR_myname=rajesh
+  595  echo $TF_VAR_myname
+  596  export TF_VAR_myname=rajesh-rrrr
+  597  clear
+  598  ls
+  599  vi github_res.tf
+  600  clear
+  601  teraform validatr
+  602  teraform validate
+  603  terraform validate
+  604  clear
+  605  vi github_res.tf
+  606  clear
+  607  terraform validate
+  608  vi github_res.tf
+  609  clear
+  610  vi github_res.tf
+  611  terraform validate
+  612  clear
+  613  terraform plan
+  614  cler
+  615  clear
+  616  terraform apply
+  617  terraform destroy
+  618  terraform apply -var 'myname=terraform-var-commandline'
+  619  vi terraform.tfvars
+  620  terraform destroy
+  621  vi terraform.tfvars
+  622  clear
+  623  ls
+  624  more github_res.tf
+  625  wq
+  626  clear
+  627  terraform apply
+  628  echo TF_VAR_myname
+  629  echo $TF_VAR_myname
+  630  unset $TF_VAR_myname
+  631  unset TF_VAR_myname
+  632  echo $TF_VAR_myname
+  633  terraform destory
+  634  terraform destroy
+  635  terraform apply
+  636  clear
+  637  ls
+  638  terraform apply
+  639  terraform apply -h
+  640  clear
+  641  ls
+  642  rm -rf terraform.tfvars
+  643  ls
+  644  terraform destroy
+  645  clear
+  646  export TF_INPUT=0
+  647  terraform destroy
+  648  clear
+  649  ls
+  650  clear
+  651  ls
+  652  clear
+  653  ls
+  654  mkdir mod1
+  655  mkdir mode2
+  656  mv mode2/ mod2
+  657  clear
+  658  ls
+  659  mv github_res.tf providers.tf output.tf mod1
+  660  ls
+  661  terraform destroy
+  662  cp mod1/providers.tf .
+  663  ls
+  664  terraform destroy
+  665  clear
+  666  s
+  667  ls
+  668  ls -la
+  669  rm -rf terraform.tfstate terraform.tfstate.backup
+  670  clear
+  671  ls
+  672  mv providers.tf mod1
+  673  ls
+  674  mv providers.tf mod1
+  675  ls
+  676  tree
+  677  clear
+  678  ls
+  679  clear
+  680  ls
+  681  vi main.tf
+  682  ls
+  683  pwd
+  684  vi main.tf
+  685  ls
+  686  more main.tf
+  687  clear
+  688  ls
+  689  terraform -h
+  690  clear
+  691  ls
+  692  terraform plan
+  693  terraform init
+  694  terraform get
+  695  cd .terraform/modules/vpc/terraform-aws-vpc-2.33.0
+  696  ls
+  697  clear
+  698  ls
+  699  cd -
+  700  ls
+  701  terraform plan
+  702  clear
+  703  ls
+  704  vi main.tf
+  705  clear
+  706  ls
+  707  terraform plan
+  708  clear
+  709  terraform init
+  710  clear
+  711  ls
+  712  terraform plan
+  713  history | grep myname
+  714  export $TF_VAR_myname=rajesh333333
+  715  export TF_VAR_myname=rajesh333333
+  716  clear
+  717  terraform plan
+  718  export TF_VAR_myname=rajesh333333
+  719  echo $TF_VAR_myname
+  720  clear
+  721  terraform validate
+  722  clear
+  723  terraform validate
+  724  ls
+  725  clear
+  726  cd mod1
+  727  ls
+  728  vi output.tf
+  729  ls
+  730  vi github_res.tf
+  731  ls
+  732  vi terraform.tfvars
+  733  terraform validate
+  734  terraform init
+  735  clar
+  736  clear
+  737  terraform validate
+  738  clear
+  739  terraform plan
+  740  clear
+  741  ls
+  742  clears
+  743  ls
+  744  cd ..
+  745  ls
+  746  more main.tf
+  747  terraform apply
+  748  clear
+  749  ls
+  750  vi mod1/terraform.tfvars
+  751  terraform apply
+  752  clear
+  753  ls
+  754  vi main.tf
+  755  terraform apply
+  756  terraform init
+  757  clear
+  758  terraform apply
+  759  clear
+  760  ls
+  761  cd mod1/
+  762  ls
+  763  vi terraform.tfvars
+  764  ls
+  765  mv terraform.tfvars ..
+  766  lc
+  767  clear
+  768  ls
+  769  ls
+  770  cd ..
+  771  ls
+  772  terrafomr apply
+  773  terraform apply
+  774  clear
+  775  ls
+  776  terraform apply
+  777  more mod1/github_res.tf
+  778  clear
+  779  ls
+  780  more terraform.tfvars
+  781  terraform apply -var="myname=ami-abc123"
+  782  terraform apply
+  783  clear
+  784  ls
+  785  more mod1/github_res.tf
+  786  clear
+  787  ls
+  788  vi main.tf
+  789  clear
+  790  s
+  791  clear
+  792  ls
+  793  rm -rf terraform.tfvars
+  794  clear
+  795  ls
+  796  terraform apply
+  797  vi main.tf
+  798  clear
+  799  terraform apply
+  800  ls
+  801  vi main.tf
+  802  terraform apply
+  803  vi terraform.tfvars
+  804  vi main.tf
+  805  terraform apply
+  806  export TF_VAR_myname=frrrrrr
+  807  terraform apply
+  808  vi terraform.tfvars
+  809  clear
+  810  ls
+  811  vi terraform.tfvars
+  812  vi mod1/github_res.tf
+  813  terraform apply
+  814  vi main.tf
+  815  clear
+  816  ls
+  817  vi mod1/github_res.tf
+  818  clear
+  819  ls
+  820  ls -la
+  821  PWD
+  822  owd
+  823  clear
+  824  pwd
+  825  ls
+  826  touch dev.tfvars
+  827  touch qa.tfvars
+  828  touch prod.tfvars
+  829  ls
+  830  ls
+  831  cler
+  832  clear
+  833  terraform workspace list
+  834  ls
+  835  terraform workspace new dev
+  836  terraform workspace list
+  837  terraform workspace select default
+  838  terraform workspace list
+  839  terraform workspace show
+  840  clear
+  841  ls
+  842  terraform workspace show
+  843  terraform workspace list
+  844  ls
+  845  terraform workspace select dev
+  846  terraform workspace list
+  847  clear
+  848  terraform plan
+  849  clear
+  850  ls
+  851  terraform workspace select default
+  852  terraform plan
+  853  terraform apply
+  854  clear
+  855  terraform workspace select dev
+  856  terraform
+  857  clear
+  858  ls
+  859  ls -la
+  860  cd .terraform
+  861  ls
+  862  clear
+  863  tree
+  864  cd environment
+  865  ls
+  866  clear
+  867  ls
+  868  more environment
+  869  clear
+  870  ls
+  871  cd ..
+  872  ls
+  873  terraform workspace select default
+  874  terraform destroy
+  875  clear
+  876  terraform workspace select dev
+  877  terraform apply
+  878  clear
+  879  tree
+  880  clear
+  881  ls
+  882  cd terraform.tfstate.d
+  883  ls
+  884  cd dev
+  885  ls
+  886  cd ..
+  887  clear
+  888  ls
+  889  cd ..
+  890  ls
+  891  tree
+  892  clear
+  893  ls
+  894  docker ps -a
+  895  docker run -itd ubunut
+  896  docker run -itd ubuntu
+  897  clear
+  898  ls
+  899  docker ps
+  900  docker attach a0910cb85695
+  901  docker ps
+  902  docker exec a0910cb85695 java
+  903  ckear
+  904  clear
+  905  ls
+  906  java
+  907  clear
+  908  ls
+  909  docker ps
+  910  docker commit -m"ub-java-ng" -a raj a0910cb85695 ub-java-ng
+  911  docker images
+  912  docker history ub-java-ng
+  913  clear
+  914  history inspect ub-java-ng
+  915  docker inspect ub-java-ng
+  916  clear
+  917  docker images
+  918  clear
+  919  docker images
+  920  clear
+  921  vi dockerfile
+  922  clear
+  923  docker build -t ub-docfile-ng-java .
+  924  clear
+  925  vi dockerfile
+  926  docker build -t ub-docfile-ng-java .
+  927  docker images
+  928  docker history ub-docfile-ng-java
+  929  clear
+  930  ls
+  931  vi doc1
+  932  more doc1
+  933  clear
+  934  ls
+  935  docker build -t ub-docfile-ng-java -f doc1 .
+  936  docker history ub-docfile-ng-java
+  937  clear
+  938  cd /var/lib/docker
+  939  s
+  940  clear
+  941  ls
+  942  find . -name rajesh*
+  943  clear
+  944  find . -name rajesh*
+  945  docker images
+  946  docker run -itd ub-docfile-ng-java
+  947  docker ps
+  948  clear
+  949  docker attach 19d4055720cf
+  950  docker ps
+  951  clear
+  952  ls
+  953  cd
+  954  ls
+  955  clear
+  956  vi doc2
+  957  clear
+  958  ls
+  959  clear
+  960  ls
+  961  docker build -t ub-docfile-ng-java -f doc2 .
+  962  clear
+  963  ls
+  964  docker run -it ubuntu
+  965  clear
+  966  ls
+  967  clear
+  968  ls
+  969  vi doc2
+  970  clear
+  971  docker build -t ub-docfile-ng-java -f doc2 .
+  972  clear
+  973  clear
+  974  clear
+  975  docker images
+  976  docker run -it ub-docfile-ng-java
+  977  clear
+  978  docker run -it ub-docfile-ng-java
+  979  clear
+  980  docker run -it ub-docfile-ng-java
+  981  docker run -d jenkins
+  982  clear
+  983  ls
+  984  docker ps
+  985  docker exec -it de158859edfd /bin/bash
+  986  clear
+  987  ls
+  988  docker ps -a
+  989  clear
+  990  docker stop $(docker ps -a -q)
+  991  docker rm $(docker ps -a -q)
+  992  clear
+  993  ls
+  994  clear
+  995  ls
+  996  docker run -itd ubuntu ls
+  997  docker ps -a
+  998  docker run -itd ubuntu ls /
+  999  docker ps -a
+ 1000  docker run -itd ubuntu ddddd
+ 1001  docker ps -a
+ 1002  clear
+ 1003  docker run  ubuntu ls
+ 1004  docker run  ubuntu ps -eaf
+ 1005  clear
+ 1006  docker ps -a
+ 1007  clear
+ 1008  docker run jenkins ls
+ 1009  docker ps -a
+ 1010  docker run jenkins lsfdsfsd
+ 1011  docker ps -a
+ 1012  docker inspect 20cbd750833f | grep lsfdsfsd
+ 1013  clear
+ 1014  docker images
+ 1015  docker save -o ub-docfile-ng-java.tar ub-docfile-ng-java
+ 1016  ls
+ 1017  docker ps -a
+ 1018  docker stop $(docker ps -a -q)
+ 1019  docker rm $(docker ps -a -q)
+ 1020  clear
+ 1021  docker images
+ 1022  docker rmi ub-docfile-ng-java
+ 1023  clear
+ 1024  docker images
+ 1025  ls
+ 1026  docker load -i ub-docfile-ng-java.tar
+ 1027  docker images
+ 1028  clear
+ 1029  docker images
+ 1030  docker tag ub-docfile-ng-java scmgalaxy/dca11223
+ 1031  docker images
+ 1032  docker login
+ 1033  docker push scmgalaxy/dca11223
+ 1034  history
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
