@@ -1,0 +1,292 @@
+What is Kubernetes?
+=========================
+	Orch for container?
+	Dev in Go
+	Free and OS
+	CNCF
+	2015
+
+What is Orch? How?
+Why Kubernetes?
+Limitation
+======================
+	Kubernetes
+==================================
+How Kubernetes works!
+
+
+HUMAN		MASTER			WORKER(S)
+=======================================================
+WORKSTATION
+Kubectl		API SERVER		Kubelet
+		Etcd			Docker Engine
+		Controller mgr		Kubeproxy
+		Schedular
+
+=======================================================
+WORKSTATION
+=======================================================
+HUMAN --> kUBECTL -> .kube/config
+			(Address of API SERVER+cert) 
+
+
+=======================================================
+MASTER			
+=======================================================
+API SERVER - is a server for API endpoint avaialble in k8s. 	POD
+Etcd - This is Persistence storage for k8. Kye-value.		POD
+Controller mgr - Kind of monitoring for k8s			POD
+Schedular -> Assign a work to Worker.				POD
+kUBELET - K8 AGENT. THis create a pod.
+kUBE PROXY - MANAGE A NETWORK of PODs
+dOCKER - tO MANAGER A CONTAINER
+=======================================================
+wORKER
+=======================================================
+kUBELET - K8 AGENT. THis create a pod.
+dOCKER - tO MANAGER A CONTAINER
+kUBE PROXY - MANAGE A NETWORK of PODs				POD
+=========================================================
+
+VMWARE -> VM -> ANY OS
+Docker -> Container -> Any APP IMAGE
+Kubernetes -> POD --> Any Container 
+=====================================
+What is POD?
+	ATOMIC UNIT of k8s
+	PODS gets IP addres from KUBE PROXY	
+	PODS may have
+			ONE COntinaer
+			Multiple container
+======================================
+YAML
+=================
+DEPLOYMENT 
+	
+	DEPLOYMENT - CAN REPLICATE POD to MANY. 1 POD -> 20 X
+	Controller - IT CONTROL - Num of PODS..
+
+==================================================
+Setting up a master
+==================================================
+3.6.88.206
+https://www.devopsschool.com/blog/setting-up-kubernetes-clusters-using-kubeadm-manual-way-in-rhel-7-centos7/
+
+
+To start using your cluster, you need to run the following as a regular user:
+
+  mkdir -p $HOME/.kube
+  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+You should now deploy a pod network to the cluster.
+Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at:
+  https://kubernetes.io/docs/concepts/cluster-administration/addons/
+
+Then you can join any number of worker nodes by running the following on each as root:
+
+kubeadm join 172.31.21.39:6443 --token k8k4lq.pn7d5f4msey376qk \
+    --discovery-token-ca-cert-hash sha256:3050d4d8df4e6946c04bd56c4d39398b47a5e5485e82fe01d2e59268760cc56c
+
+==================================================
+Setting up a Workstation
+==================================================
+kubectl -> .kube/config
+
+To start using your cluster, you need to run the following as a regular user:
+
+  mkdir -p $HOME/.kube
+  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+
+==================================================
+Setting up a Network policy
+==================================================
+kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')" 
+
+==================================================
+Setting up a Worker
+==================================================
+Then you can join any number of worker nodes by running the following on each as root:
+
+kubeadm join 172.31.21.39:6443 --token k8k4lq.pn7d5f4msey376qk \
+    --discovery-token-ca-cert-hash sha256:3050d4d8df4e6946c04bd56c4d39398b47a5e5485e82fe01d2e59268760cc56c
+
+=============================================================
+Namespace -
+
+
+POD
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hello-pod
+  labels: 
+    app: webserver
+spec:
+  containers:
+  - name: hello-ctr
+    image: nginx
+    ports:
+    - containerPort: 80
+
+Deployment
+=================================
+	Replication - 10 POD
+	Controller - 10 POD ---- 10 POD
+	versioning
+	
+
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "1"
+  creationTimestamp: null
+  generation: 1
+  labels:
+    app: my-dep
+  name: my-dep1
+  selfLink: /apis/apps/v1/namespaces/default/deployments/my-dep
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 5
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: my-dep
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: my-dep
+    spec:
+      containers:
+      - image: scmgalaxy/nginx-devopsschoolv2
+        imagePullPolicy: Always
+        name: nginx-devopsschoolv1
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+status: {}
+
+=================================================
+service ====== LOADBALCER
+
+kubectl expose deploy my-dep1 --port=80 --target-port=80
+
+
+COMMANDS AS A WORKSTATION
+========================
+[ec2-user@ip-172-31-21-39 ~]$ history
+    1  sudo -s
+    2  kubectl
+    3  clear
+    4  mkdir -p $HOME/.kube
+    5  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+    6  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+    7  clear
+    8  ls
+    9  kubectl
+   10  clear
+   11  kubectl cluster-info
+   12  clear
+   13  ls
+   14  kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d
+   15  cleae
+   16  clear
+   17  kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
+   18  clear
+   19  ls
+   20  kubectl get nodes
+   21  kubectl get pods
+   22  kubectl get deploy
+   23  kubectl get ns
+   24  kubectl craete ns dev
+   25  kubectl create ns dev
+   26  clear
+   27  kubectl get ns
+   28  kubectl get pods
+   29  kubectl get pods -n=kube-system
+   30  clear
+   31  ls
+   32  vi pod.yaml
+   33  kubectl create -f pod.yaml
+   34  kubectl get pods
+   35  clear
+   36  kubectl get pods
+   37  kubectl get pods -o wide
+   38  curl http://10.44.0.1
+   39  clear
+   40  kubectl get pods -o wide
+   41  clear
+   42  ls
+   43  vi dep.yaml
+   44  kubectl create -f dep.yaml
+   45  clear
+   46* vi dep.yaml
+   47  kubectl create -f dep.yaml
+   48  kubectl get deploy
+   49  kubectl get pods
+   50  clear
+   51  kubectl get pods
+   52  clear
+   53  kubectl get pods
+   54  kubectl delete pod my-dep1-55f56d7894-8c4dt
+   55  kubectl get pods
+   56  clear
+   57  kubectl get pods
+   58  kubectl get pods -o wide
+   59  clear
+   60* l
+   61  kubectl explain pod.spec
+   62  ldear
+   63  ldearclear
+   64  clear
+   65  kubectl explain deploy.spec
+   66  kubectl explain deploy.spec.template
+   67  cleafr
+   68  clear
+   69  kubectl get pods
+   70  kubectl describe pod hello-pod
+   71  clear
+   72  kubectl get deploy
+   73  kubectl edit  deploy my-dep1
+   74  kubectl get deploy
+   75  kubectl get pods
+   76  clear
+   77  kubectl
+   78  clear
+   79  kubectl api-resources
+   80  clear
+   81  ls
+   82  kubectl
+   83  clear
+   84  kubectl expose -h
+   85  clear
+   86  kubectl get deploy
+   87  kubectl get svc
+   88  clear
+   89  kubectl expose deploy my-dep1 --port=80 --target-port=80
+   90  kubectl get svc
+   91* curl http://10.107.93.6
+   92  kubectl get pods
+   93  kubectl get svc
+   94  history
+
+
+
+
