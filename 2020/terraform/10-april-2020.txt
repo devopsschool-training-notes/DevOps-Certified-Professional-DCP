@@ -9,7 +9,7 @@ How to destroy one specific resource from TF file in Terraform?
 ===================================
 
 provider "github" {
-  token        = "9878a30086b66ed41588b1571904427e122d4acb"
+  token        = ""
   organization = "devopsschool-lab-exercise"
 }
 
