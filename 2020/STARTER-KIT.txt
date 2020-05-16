@@ -1,0 +1,193 @@
+Rajesh Kumar
+===================
+DevOps@RajeshKumar.xyz
+============================
+www.RajeshKumar.xyz
+
+Trainer Introduction	DONE
+Student Introduction	DONE
+=====================================
+What you are going to Learn? 
+	How to become DevOps Engineer?
+
+
+DevOps Certified Professional
+https://www.devopsschool.com/certification/devops-certified-professional-dcp.html
+
+Pre Production
+====================================
+START				
+	Software Development Model		Waterfall -> Agile -> DevOps	
+	Software Development Architecture	Monolithic -> SOA -> Microservices[NOT Covered]	
+Platform 	
+		OS			Linux (RHEL - CENTOS - UBUNTU)
+		VM			VitulaBox -> Vagrant	[NOT Covered]
+		Container		Docker
+Planning and Requirement Gathering 	---> JIRA	
+Programming				---> Python
+Versioning				---> Git using Github
+Code Analysis				---> SonarQube
+Build Management			---> Maven
+Unit Testing				---> Junit		[NOT Covered]
+Packaging Management			---> Jar 	
+Archiving Packages			---> Nexus		
+Development to QA, Staging, Preprod - Existing Server --> Ansible
+Deployment to QA, Staging, Preprod - Container ---> Kubernetes
+Acceptance Testing			---> Selenium		[NOT Covered]
+Code Coverage				---> Jacoco		[NOT Covered]
+Continuous Integration			---> Jenkins
+Infrastructure coding using 		---> Terraform
+
+Production
+====================================
+Deployment to Production - Existing Server	--> Ansible
+Deployment to Production - Container		---> Kubernetes		
+Infrastructure Monitoring			--> Datadog
+Log Monitoring					--> Splunk
+Performance Monitoring				--> NewRelic
+Security					--> OWASP SonarQube
+Infrastructure coding using 			--> Terraform
+===================================
+Project cum Assignment ---> Students need to do and submit this projects
+
+How to get certification?
+	Clear your project
+	Get your certification - https://www.devopscertification.co/
+
+How to Install Goto meeting
+Desktop Installer - https://global.gotomeeting.com/install
+
+
+How to attend Meeting 
+Gotomeeting
+
+What is the timing of the classes?
+Weekend
+		Saturday - 8:30 AM IST - 11:30 AM IST
+		Sunday   - 8:30 AM IST - 11:30 AM IST
+https://savvytime.com/converter
+
+Weeekdays 
+		Tuesday	- 8:30 PM IST - 11:30 PM IST
+		Wednesday - 8:30 PM IST - 11:30 PM IST
+
+Where do you see all this info?
+https://www.devopsschool.com/calender/
+
+
+DevOps Certified Professional Vs Master in DevOps Engineering (MDE)
+
+DCP 				 MDE
+Training 			| Training 
+No Prod Dev(Project)		| Prod Dev (Project Live and Interactive)				
+No Live Interview		| Live Interview Prep
+				| VitulaBox -> Vagrant
+ 				| Selenium		
+				| Jacoco					
+				| Istio	
+Essential Agenda 		| Advance
+
+Where do we find Learning Material?
+Tutorials
+	- https://www.devopsschool.com/tutorial/
+	- http://www.devopsschool.com/blog/
+Slides
+	HTML - https://www.devopsschool.com/slides/
+	PDF - https://www.devopsschool.com/pdf/
+Notes
+	https://github.com/devopsschool-training-notes
+	OLD - https://www.devopsschool.com/notes/
+
+Video Recoding
+	New - https://www.devopsschool.com/lms/	[IMPORTANT]
+	OLD and Other Live - https://www.devopsschool.com/videos
+	OLD but org - https://www.devopsschool.com/video/
+	Youtube - https://www.youtube.com/TheDevOpsSchool
+
+Source Code
+
+
+
+What are content which would be covered in each tools training?
+
+DCP				MDE
+Essential Agenda 		| Advance
+
+
+60 Hours			| 200+
+
+
+How to get access in https://www.devopsschool.com/lms/?
+======================
+- Login https://www.devopsschool.com/lms/login/index.php using GMAIL ID only
+- We would grant access to LMS
+
+
+How to get Certification and Interview DUMP?
+=============================================
+- https://www.devopsschool.com/interview
+- https://www.devopsschool.com/lms/course/view.php?id=42
+
+
+Jobs
+==================
+https://www.devopsschool.com/jobs/
+
+
+How to join DevOps School Community?
+---------------------------------------
+Website
+	Subscribe to this
+	https://www.devopsschool.com/blog/
+
+Facebook Groups
+DevOps	- 
+- https://www.facebook.com/groups/DevOpsIndia/
+DevSecOps Certified Professional (DSOCP) - 
+- https://www.facebook.com/groups/DevSecOpsCertifiedProfessional/
+DevOps Certified Professional (DCP) 
+- https://www.facebook.com/groups/DevOpsCertifiedProfessional/
+Site Reliability Engineering Certified Professional (SRECP)
+- https://www.facebook.com/groups/SiteReliabilityEngineeringCertifiedProfessional/
+DevOps School
+- https://www.facebook.com/groups/DevOpsSchoolCommunity/
+
+Facebook Pages
+DevOps School
+- https://www.facebook.com/DevOpsSchool/
+DevOps Community
+- https://www.facebook.com/DevOpsIndia/
+- https://www.facebook.com/DevOpsCommunity/
+
+Google Groups
+https://www.devopsschool.com/community/
+
+Linkedin
+- https://www.linkedin.com/company/devopsschool/?viewAsMember=true
+- https://www.linkedin.com/groups/6727934/
+- https://www.linkedin.com/groups/1807520/
+- https://www.linkedin.com/groups/1807528/
+
+
+How to get updated in DevOps World with new thing????
+- http://www.bestdevops.com/
+- https://www.youtube.com/TheDevOpsSchool
+
+==================================================================
+===================================================================
+How to contact us?
+contact@DevOpsSchool.com
+
+If u miss a class?
+=====================
+ - reocorded in LMS
+ - Re attend new month
+ - contact@DevOpsSchool.com
+
+
+
+
+
+
+
+
