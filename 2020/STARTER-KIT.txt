@@ -184,8 +184,10 @@ If u miss a class?
  - Re attend new month
  - contact@DevOpsSchool.com
 
-
-
+===================================================================
+What is DevOps???
+===========================================
+https://www.devopsschool.com/videos/387/complete-cicd-devops-implementation-from-scratch-using-jenkins-by-devopsschool/
 
 
 
