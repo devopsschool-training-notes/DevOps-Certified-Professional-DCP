@@ -1,0 +1,252 @@
+Rajesh Kumar.
+LINUX
+=========================
+What is Linux?
+==================
+	OS just like Windows.
+	Coming from UNIX.
+	Dev by Linus Tovarld
+	Free
+	Open Source
+	Flavour
+		GNU
+		REDHAT == VERY POPULAR BUT PAID
+		UBUNTU == VERY POPULAR
+		CENTOS == VERY POPULAR BUT FREE
+		FEDORA
+		DEBINA
+		SUSE
+		HP
+		Amazon		
+
+Why Linux?
+
+	Kernal
+	Human ---> Kernal --> Machine ---> Kernal --> Human
+
+OS == KERNAL + HUMAN FRIENDLY UTILITY
+	TYPE
+		LINUX Kernal
+		WINDOWS Kernal
+	
+	- VERY FAST
+	- VERY SECURED
+		Comapre to Windows
+
+How Linux?
+==============================
+OS
+	PHYSICAL MACHINE Such as laptop and desktop
+	Virutual Machine
+		Hypervior
+			virtualbox from oracle
+			vmware from vmware
+			hyper v from microsoft
+			xen
+			kvm
+=========================================
+Where i can get Virutual Machine
+		Virutual Machine
+			by virtualbox (Called Private Cloud)
+			By AWS	 (Called Public Cloud)
+
+How to create VM using virtualbox?
+===============================================
+Step 1 - Install virtualbox
+	https://download.virtualbox.org/virtualbox/6.1.8/VirtualBox-6.1.8-137981-Win.exe
+
+Step 2 - Download Centos OS
+			Version - 7 and 8
+		http://isoredirect.centos.org/centos/7/isos/x86_64/
+Step 3 - Create a VM	
+	WHAT TO DO FROM	
+	Follow - https://www.devopsschool.com/lms/mod/page/view.php?id=468
+	or
+	Cloud
+
+	If windows
+			Connecting RDP
+			IP - User and Password
+	If Linux	
+			SSH
+			IP - User and Password
+			IP - User and Key
+
+13.126.6.105
+centos ---> root
+=======================================
+https://www.devopsschool.com/tutorial/linux/
+
+
+USER COMMAND
+https://www.devopsschool.com/blog/linux-commands-for-user/
+
+
+ADMIN COMMAND
+https://www.devopsschool.com/blog/linux-commands-for-administrator/
+
+Shell Scripting
+
+
+ZIP  -----> Archive and Compression
+Gzip  --------> Archive  and Compression
+Tar --- > Archive  
+
+ 238  tar -cvf ramu.tar ramu/
+  239  clear
+  240  ls
+  241  rm -rf ramu
+  242  clear
+  243  ls
+  244  tar -xvf ramu.tar
+
+			file/dir
+====================================================
+USER			GROUP			OTHER
+==========================================================
+READ + WRITE + EX	READ + WRITE + EX	READ + WRITE + EX
+4 + 2 + 1		4 + 2 + 1		4 + 2 + 1
+=============================================================	
+rw-	rw-	r--
+6	6	4
+
+- Give user a read access and all none...
+chmod 400
+r-- --- ---
+- Give user a exex access and group and other read access
+chmod 744
+rwx r-- r--
+ Give user a exex access and group and other read and exec access
+chmod 755
+==============================
+
+vi - visual interface
+----------------------------
+vi filename
+	IF exist ---open up a file
+	IF NOT exist ---> Create a file
+	Mode 
+		READ (Default) using esc
+		EDIT using i
+
+	Exit without saving ---- esc + :q!
+	Exit with saving     ---- esc + :wq
+
+==============================
+yum - package manager
+===================================
+
+Repository			client 		device	
+Google				PlayStore	Mobile
+yum repo			yum		centos + redhat os
+apt repo			apt		ubuntu
+nuget gallery			nuget		windows
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  1  clear
+    2  c
+    3  clear
+    4  cal
+    5  bc
+    6  touch rajesh.txt
+    7  ls
+    8  file rajesh.txt
+    9  mkdir raj
+   10  file raj
+   11  vi raj1.txt
+   12  vi raj2.txt
+   13  cat raj1.txt
+   14  cat raj2.txt
+   15  cmp raj1.txt raj2.txt
+   16  comm raj1.txt
+   17  comm raj1.txt raj2.txt
+   18  clear
+   19  ls
+   20  stat raj1.txt
+   21  clear
+   22  history
+
+
+  33  who
+   34  whoami
+   35  clear
+   36  uname
+   37  uname -A
+   38  uname -a
+   39  tty
+   40  w
+   41  who
+   42  clear
+   43  pwd
+   44  cd /opt/
+   45  ls
+   46  pwd
+   47  df -kh
+   48  cler
+   49  cd /
+   50  clear
+   51  ls
+   52  pwd
+   53  cd /opt
+   54  pwd
+   55  ls
+   56  cd /etc
+   57  ls
+   58  clear
+   59  ls
+   60  clear
+   61  cd
+   62  pwd
+   63  cd /opt/
+   64  cd
+   65  ls
+   66  pwd
+   67  cd /etc/
+   68  cd
+   69  clear
+   70  ls
+   71  pwd
+   72  cd raj
+   73  ls
+   74  pwd
+   75  mkdir raj1
+   76  cd raj1/
+   77  pwd
+   78  cd
+   79  pwd
+   80  cd -
+   81  pwd
+   82  clear
+   83  pwd
+   84  cd ..
+   85  pwd
+   86  history
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
