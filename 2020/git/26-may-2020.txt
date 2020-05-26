@@ -1,0 +1,180 @@
+Rajesh Kumar
+DevOps@RajeshKumar
+Contact@DevOpsSchool.com
+======================================
+What is Git?
+	Versioning Tool
+	Source Code management
+	DISTRIBUTED
+	------------
+	Free
+	Open Source
+	Linus Tovald
+	Give you
+		Who has modify this code?
+		When it got modified?
+		Why this modififed?
+		Where is that?	
+
+Why Git?
+	DISTRIBUTED
+
+What is DISTRIBUTED VS Server/Client
+
+Other
+rcs -> cvs -> svn
+Perforce - TFS - Mercurys
+
+How to install git?
+	Windows 
+		https://git-scm.com/
+		- git cmd
+		- git bash
+	Linux - 
+		yum install git
+		apt-get install git
+	Mac 
+		https://git-scm.com/
+=========================================
+Basic Workflow in Git?
+
+Step 1 - Create your own repo
+$ git init
+Step 2 - Have your files - Code
+
+Step 3 - Add these files into git[Working dir to staging area]
+$ git add filename
+
+ONE TIME 
+git config user.name "Rajesh Kumar"
+git config user.email "devops@Rajeshkumar.xyz"
+git config --list
+
+Step 4 - commit a files into git [Staging area to repo area]
+git commit -m"adding first file"
+
+Step 5 - See a commited logs
+$ git log
+$ git show b45469efdcef045c1936f22ee07689c989b02cb4
+
+
+
+
+commit a744235eb1ce139be03f29740eadff77a09ed86e (HEAD -> master)
+Author: Rajesh Kumar <devops@Rajeshkumar.xyz>
+Date:   Tue May 26 21:38:33 2020 +0530
+
+    adding 2nd filedsadass
+
+commit 8dd0864447fb34d72073bc69e496159057e2171a
+Author: Rajesh Kumar <devops@Rajeshkumar.xyz>
+Date:   Tue May 26 21:37:13 2020 +0530
+
+    adding 2nd files
+
+commit b45469efdcef045c1936f22ee07689c989b02cb4
+Author: Rajesh Kumar <devops@Rajeshkumar.xyz>
+Date:   Tue May 26 21:26:56 2020 +0530
+
+    adding first file
+
+a744235eb1ce139be03f29740eadff77a09ed86e  - CHECKSHUM by SHA1
+
+
+===============================================================
+
+ 505  cd git/
+  506  clear
+  507  ls
+  508  git init
+  509  ls
+  510  start .
+  511  start .
+  512  clear
+  513  git add file1.java
+  514  git config user.name "Rajesh Kumar"
+  515  git config user.email "devops@Rajeshkumar.xyz"
+  516  git config --list
+  517  clear
+  518  ls
+  519  git commit -m"adding first file"
+  520  git logs
+  521  git log
+  522  git show b45469efdcef045c1936f22ee07689c989b02cb4
+  523  clear
+  524  clear
+  525  git status
+  526  start .
+  527  git add file2.java
+  528  start .
+  529  cler
+  530  clear
+  531  git status
+  532  git add .
+  533  git status
+  534  git commit -m"adding 2nd files"
+  535  git status
+  536  clear
+  537  git status
+  538  git diff
+  539  clear
+  540  git add .
+  541  git diff
+  542  git status
+  543  git commit -m"adding 2nd filedsadass"
+  544  git status
+  545  clear
+  546  git logs
+  547  git log
+  548  clear
+  549  ls
+  550  git log --oneline
+  551  ls
+  552  git checkout 8dd0864
+  553  ls
+  554  git log --oneline
+  555  git checkout b45469e
+  556  ls
+  557  start .
+  558  git checkout master
+  559  start .
+  560  clear
+  561  history
+
+=========================================================================
+
+Git branching and Merging
+========================================
+  578  git branch
+  579  git checkout fea1
+  580  git branch
+  581  clear
+  582  ls
+  583  touch fea1.txt
+  584  git add .
+  585  git commit -m"adding fea1"
+  586  ls
+  587  clear
+  588  ls
+  589  git checkout master
+  590  ls
+  591  git merge fea1
+  592  clear
+  593  ls
+  594  ls
+  595  history
+  596  ls
+  597  git push origin master
+  598  history
+
+=================================
+https://www.devopsschool.com/tutorial/git
+https://www.devopsschool.com/slides/git
+https://www.devopsschool.com/lms
+https://www.devopsschool.com/video
+https://www.devopsschool.com/videos/
+
+
+
+
+
