@@ -1,0 +1,49 @@
+What is SonarQube
+========================
+	Quality mgmt tool
+	From SonarSource
+	Version
+		Community [TODAY ] - Free
+		Professional
+		Enterprise
+	Dev in Java
+	Database - RDBMS
+	Manages "Static Code Review" Rules
+	GUI DASHBOARD
+	Way to COntrol a Quality
+	Audit - 
+		Who has written a Bad code
+		What was written bad
+		How can it fix it?
+		Is it fixed it or not?
+	27 programming languages supported
+
+What is Static Code Analysis?
+https://en.wikipedia.org/wiki/List_of_tools_for_static_code_analysis#Java
+
+What is Quality?
+	Code Quality 
+		Peer Code Review
+		Static Code Review [ SONARQUBE ]
+	Test Qualily
+
+Why SonarQube?
+70% of BUGS to be found post release results of BAD CODE Quality
+
+How this works?
+	SonarQube Server DONE
+	Code 
+	Scanner	DONE
+
+How to install SonarQube Server?
+15.206.203.110
+
+
+
+/home/ec2-user/scanner/bin/sonar-scanner
+
+
+
+
+
+
