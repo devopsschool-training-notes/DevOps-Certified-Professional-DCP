@@ -1,0 +1,95 @@
+What is Maven?
+======================
+	- Project mgmt tool
+		Build mgmt tool.
+	- Free
+	- Open Source
+	- Dev for JAVA
+	- Based on Plugins.
+	- From Apache
+	- Written in JAVA
+
+
+Why we need maven?
+-------------------------
+	- Convert Source COde into Binary by Automating Rep tasks.
+	- Dependecy mgmt cap*
+	- Package
+	- Archive
+	- Many
+
+Other tools
+https://www.devopsschool.com/path/
+
+How to Install it?
+	JAVA
+	Download 
+	https://maven.apache.org/download.cgi
+	Extract 
+	C:\tools\maven
+	SET in PATH
+	C:\tools\maven\bin --> PATH
+
+How to verify?
+$ mvn
+
+Lets understand Maven?
+============================
+Maven developed using plugins
+		Core
+		https://maven.apache.org/plugins/index.html
+		Community
+
+
+Human  LifeCycle
+
+
+Project Code LifeCycle
+======================
+Code -> Analys - Build - UT - Pack - Deploy - TEST
+
+How to automate Project Code LifeCycle?
+https://maven.apache.org/ref/3.6.3/maven-core/lifecycles.html
+
+
+Default LifeCycle
+=======================
+Phase			Goal		Powered by 
+----------------------------------------------------------
+compile			compile		Core
+test			test		Core
+package			package		Core
+install			install		Core
+			
+
+Product - devopsschool
+artifact aka module - chat mail notes
+
+
+mvn archetype:generate -DgroupId=com.devopsschool.software -DartifactId=chat -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+
+
+pom.xml
+=====================
+Project object Model
+
+Project Info - Read by Maven to go phases through Goal
+
+- name
+- version
+- comaany details
+- Dependent lib
+- properties
+- 
+
+https://www.devopsschool.com/videos/387/complete-cicd-devops-implementation-from-scratch-using-jenkins-by-devopsschool/
+
+
+
+Maven uses 
+		Local repo
+		Central repo for package dep...
+
+
+
+
