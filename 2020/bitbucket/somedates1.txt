@@ -1,0 +1,143 @@
+Pre 
+    Git
+
+What is Bitbucket
+====================
+- Registry 
+    for Git Repository
+    i.e You can manage 1000s of git Repository
+- Rich UI to interact git Repository
+- ROLE based Authen and Authrization
+- Org management
+- Wiki Page
+- Issues tracking tool
+
+Dev by Atlassion
+Dev in Java
+Release 
+        Cloud - https://bitbucket.org/
+        Hosted - You can install in ANY EXISTING server.
+
+Other tools - 
+Github Enterprise - Gitlab - Gerrit
+
+How to install Bitbucket Hosted?
+------------------------------
+https://confluence.atlassian.com/bitbucketserver/bitbucket-server-installation-guide-867338382.html
+
+13.232.45.189
+
+ssh -i /Users/rajeshkumar/RajeshAll/GDrive/keys/rajesh-mumbai.pem ec2-user@13.232.45.189
+
+https://product-downloads.atlassian.com/software/stash/downloads/atlassian-bitbucket-6.10.1-x64.bin
+
+https://www.devopsschool.com/tutorial/git/git-upgrade-process.html
+
+[root@ip-172-31-21-50 opt]#
+[root@ip-172-31-21-50 opt]# ./atlassian-bitbucket-6.10.1-x64.bin
+Starting Installer ...
+Fontconfig warning: ignoring UTF-8: not a valid region tag
+
+Bitbucket 6.10.1 installation wizard
+Would you like to install or upgrade an instance?
+Install a new instance [1, Enter], Upgrade an existing instance [2]
+
+
+Install Bitbucket 6.10.1
+What type of instance are you looking to install?
+Install a Server instance [1, Enter], Install a Data Center instance [2], Install a Smart Mirroring instance [3]
+
+Where should Bitbucket be installed?
+
+Select the folder where you would like Bitbucket 6.10.1 to be installed,
+then click Next.
+[/opt/atlassian/bitbucket/6.10.1]
+
+Default location for Bitbucket home directory
+
+The location for Bitbucket data.
+This will be the default location for repositories, plugins, and other data.
+
+Ensure that this location is not used by another Bitbucket installation.
+[/var/atlassian/application-data/bitbucket]
+
+Configure which ports Bitbucket will use.
+
+
+Configure TCP Ports
+Bitbucket requires a TCP port that isn't being used by other applications.
+
+The HTTP port is where users access Bitbucket through their browsers.
+
+Bitbucket also requires ports 7992 and 7993 are available to run an embedded
+Elasticsearch instance that provides search functionality to Bitbucket.
+HTTP Port Number
+[7990]
+
+
+
+Run as a service
+For a production server we recommend that you run Bitbucket as a
+Windows/Linux service because Bitbucket will restart automatically when the
+computer restarts.
+Install Bitbucket as a service?
+Yes [y, Enter], No [n]
+
+Please review your Bitbucket installation settings
+
+
+Installation Summary
+Installation Directory: /opt/atlassian/bitbucket/6.10.1
+Home Directory: /var/atlassian/application-data/bitbucket
+HTTP Port: 7990
+Install as a service: Yes
+
+Install [i, Enter], Exit [e]
+
+
+Extracting files ...
+
+
+Installation of Bitbucket is complete
+Would you like to launch Bitbucket?
+Yes [y, Enter], No [n]
+
+
+http://13.232.45.189:7990/
+rajesh
+devops123
+
+==============================
+Step 1 - Configure Bitbucket 
+    Mail Server
+    Org
+        Projects
+    Authentication - HOW TO LOGIN BITBUCKET?
+                        Password Based = Bitbucket Internal Directory
+    Authrization -  What is the access you have?
+            Users
+            Groups
+            Global Permission
+    other..
+
+Step 2 
+
+================
+https://www.devopsschool.com/tutorial/bitbucket/bitbucket-server-install-configuration-in-centos7.html
+
+
+Git?
+===========
+8 Hour git -> 
+
+
+https://cdn.recordingassets.logmeininc.com/7146473042377460492/1671330647052929804/596b45db-5e8e-46b4-8826-6b43c3b66b4f/recording/5800503684231436546/transcode/5800503684231436546.mp4?Policy=eyJTdGF0ZW1lbnQiOiBbeyJSZXNvdXJjZSI6Imh0dHBzOi8vY2RuLnJlY29yZGluZ2Fzc2V0cy5sb2dtZWluaW5jLmNvbS83MTQ2NDczMDQyMzc3NDYwNDkyLzE2NzEzMzA2NDcwNTI5Mjk4MDQvNTk2YjQ1ZGItNWU4ZS00NmI0LTg4MjYtNmI0M2MzYjY2YjRmLyoiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE1ODI0NjE1ODd9LCJJcEFkZHJlc3MiOnsiQVdTOlNvdXJjZUlwIjoiMC4wLjAuMC8wIn19fV19&Signature=DQW7vgxUjrG1xNN~VcIysaIwDfD5SygNu0iJ8JplkuxIiUElfgDI9kGBOH486LzFp-9S86KCisZEIhPc~LsNdneyJib9cmaf28O7a~OCrWMTWZreKNBCuQDxlX-i4cJPEHVO7-2uUxR~eM8qhm6vTgYpSAoOz5YBa-M1p3QO77N9Gd9VOD7FnI2nv8ReC~OHZ1w9tdel3k0x3Fz-P4prlFaBzBnIm4ZAMfuZyq7nqMaxG1lbgZULT~zj7JUVY2cVq0YulAadeAvCbUrXMs5QEtT0D9YpqjbsjrH3gjYqeGeD1cHi~Q0zL~B033JqeL3Y621WJFCBMwLRa4L3CWSKOw__&Key-Pair-Id=APKAI2Z3PWL3BWDDZ5IA&response-content-disposition=attachment
+
+
+
+
+
+
+
+
+
