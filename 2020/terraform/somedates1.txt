@@ -1,0 +1,169 @@
+
+How to Automate?
+-------------
+Problem
+===============
+
+What is Terraform?
+======================
+    A tool to code for INFRA
+    Written in Go.
+    Release 
+            Community -  Free - COmmand line
+            Enterprise - gUI - Paid
+    By Hashicorp
+        Vagrant
+        Terraform
+        Consul
+        Vault
+
+
+Why Terraform?
+================
+Discussed.
+
+Dev - 
+    Local --> Code -> Analyze -> Build -> UT -> PACK -> Deploy 2 Arti - AT ---
+    Remote - QA ->>> Create QA Stake in AWS -> Dep - AT - release
+    ==========================================================
+    Create -> RUN --> Update -> Destroy
+
+Exp -
+DevOps Engineer
+----------------
+    Dev - 15+
+    QA - 15+
+    Ops - 15+
+=========================
+CI/CD
+Code->Build->test->Release-Deploy - 30 THINKS - 30 Tools
+----------------------------------
+            Automate
+
+Architecure of terraform?
+====================================
+Human --> TCL ->   Terraform
+                        -> Provider(JSON) -> Supported API request --> TOOL 
+
+
+Tools --> Action --> Response ---> STATE FILE.
+
+CREATE - UPDATE - Delete
+======================================
+Terminoloy of Terraform == How to TCL?
+============================================
+prjdir
+        .tf
+            PROVIDER
+                    Resoucers
+                        Argument Reference
+                    Connections
+                        Provisionar
+                            Local ----
+                            Remote 
+                            Chef
+                            FILE
+                            Puppet
+            https://www.terraform.io/docs/provisioners/index.html
+ ==========================================
+ init -> plan -> apply ->destory 
+
+https://www.devopsschool.com/blog/terraform-basics-workflow-loop-explained/
+https://www.devopsschool.com/blog/terraform-advance-workflow-loop-explained/                     
+        variables(Global)
+                    variables(Local)
+LIST OF PROVIDER
+====================
+https://www.terraform.io/docs/providers/index.html
+
+What is Resoucers?
+https://www.terraform.io/docs/providers/aws/index.html
+
+QUICK Demo
+==============================
+Create a instance of AWS - Linux
+                Linux
+                        install git
+                        install ansible
+                        clone playbook repo.
+                        run a playbook.
+========================================
+WORKSTATION
+===============
+35.154.75.120
+ec2-user
+
+
+resource "aws_instance" "web" {
+  ami           = "ami-5b673c34"
+  instance_type = "t2.micro"
+
+  tags = {
+    Name = "HelloWorld"
+  }
+}
+
+ provisioner "local-exec" {
+    command = "/bin/bash deploy.sh"
+  }
+
+
+  Connections
+        user
+        key
+
+connection {
+    type     = "ssh"
+    user     = "ec2-user"
+    private_key = "ssh.key"
+}
+
+
+ provisioner "file" {
+    source      = "deploy.sh"
+    destination = "/tmp/script.sh"
+  }
+
+  provisioner "remote-exec" {
+    inline = [
+      "chmod +x /tmp/script.sh",
+      "/tmp/script.sh args",
+    ]
+  }
+
+
+TASK 
+=========
+terraform precedence
+
+variable "image_id" {
+  type = string
+  description = "This is for demo of string variable"
+  default = "ami-5b673c34"
+}
+
+
+MY SCRIPT 
+https://github.com/devopsschool-lab-exercise/Terraform-Allianz-Pune-Kerala-Oct-2019/tree/master/rajeshkumar
+
+
+Lab1
+Go to instance
+35.154.75.120
+ec2-user
+
+Step1 - Create a git repo
+Step2 - using local-exce 
+            clone
+            add
+            commit
+            push
+
+
+1. What 
+Problem ---
+Autoion - 
+
+
+
+1.  Tools QS.....
