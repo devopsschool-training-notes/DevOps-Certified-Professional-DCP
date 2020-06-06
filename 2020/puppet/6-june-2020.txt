@@ -1,0 +1,240 @@
+What is Puppet?
+==================
+	Config mgmt tool.
+	From Puppet
+	Written in Ruby
+	Release
+		Community - cmd + free + open source
+		Enterprise - cmd + gui + paid
+	6.X
+
+What is Config mgmt tool?
+	Server(S)
+
+What is there in the server to manage their config?
+	file
+	directory
+	user
+	group
+	service
+	apt
+	yum
+	windows
+		
+	Puppet is config mgmt tool to manage a server(s) resources 
+		consitent way
+		automated
+
+Other tools - 
+	Config mgmt - Ansible -> Puppet -> Chef -> cfengine
+	Deployment mgmt - UDeploy - Octopus Deploy
+
+Why Puppet?
+	======================
+	Automated way to do a consitent server config mgmt
+	ideompotent
+		-FIRSRT ---> SHELL ---> 10 Step -> 10 MINS ---
+		-Second ---------------2 step ----- 2 mins.
+	Saving cost
+	Speed
+	Platform indep
+	Consistance Change Management
+
+----------Ansible vs Puppet------------
+- SSH|WINRM		TCP
+- PYTHON - REMOTE	Agent
+- Module		Resources
+- Roles			Module
+- Yaml 			.pp
+
+============================
+Puppet Architecture
+============================
+
+Human ----> 	Puppet Enterprise 	---->	 Server (Puppet Agent aka Puppet client)
+		Puppet Server		
+
+		SSH(PS) - http(PE)	----> Agent -----
+
+		Environment
+			PROD(Default)
+				site.pp	ON WHAT?????
+				Class
+				{
+					module(S)
+						default.pp
+				}
+			DEV
+				site.pp	ON WHAT?????
+					module(S)
+						default.pp
+			QA
+				site.pp	ON WHAT?????
+					module(S)
+						default.pp
+========================================================
+Roles In Puppet
+	Admin ---> Manage a PS - PE and ServerS + Auth + Cert + Many 
+	Developer - > Write Modules and test in loation and Give it to Admin.
+----------------
+	DevOps - 
+
+How to become a Puppet Dev?
+====================================
+JDK -> .java -> .class -> .class(S) into Jar --> War --> 
+	- variables
+	- conditioning
+	- looping
+	- operators
+	- function
+
+DevKIT(PuppetClient)	-> .pp 		-> .pp(S) -> module
+			- variables
+			- conditioning
+			- looping
+			- operators
+			- function
+
+What is .pp?
+	Puppet Program
+	DSL lang - For puppet
+		Declarive
+		---------
+		yaml
+		json
+		xml
+
+How to Write puppet Program?
+========================
+Step 1 - Install Puppet client
+15.206.149.10
+ubuntu
+
+  6  ls
+    7  wget https://apt.puppetlabs.com/puppet5-release-xenial.deb
+    8  ls
+    9  sudo dpkg -i puppet5-release-xenial.deb
+   10  sudo apt update
+   11  clear
+   12  apt-get install puppet-agent
+   13  clear
+   14  ls
+   15  ps -eaf | grep puppet
+   16  which puppet
+   17  puppet
+   18  apt-get install puppet-agent
+   19  puppet
+   20  apt install puppet-common
+   21  clear
+   22  ls
+   23  puppet
+   24  which puppegt
+   25  which puppet
+   26  history
+
+
+
+Step 2 - Write down your BIG Problem 
+Setup a webserver.
+		Apache
+
+Step 3 - Convert into STEP(S) aka pseudocode
+		- Download AV package in node
+		- Extract it
+		- Copy it in desire loc
+		- Do you need config change
+		- Start a svc
+-------------------------------
+	Step1 - insall apache2 in ubuntu
+	Step2 - create index.html with some content
+	Step3 - Copy package(index.html)
+	Step3 - Start a apache2		
+
+
+Step 4 - For each STEP of pseudocode, there is ONE resource given by PUPPET.
+		Which would do for you that task...
+			You need to give only PARAMETERES
+
+	Step1 - insall apache2 in ubuntu	- package	
+	Step2 - create index.html with some content - file
+	Step3 - Copy package(index.html) - exec
+	Step3 - Start a apache2		  - service
+
+
+Step 5 - Where is all the resources of Puppet?
+	https://puppet.com/docs/puppet/latest/type.html
+
+Step 6- How to write resources in .pp.
+
+filename.pp
+---------------------------
+resource1
+	attributes
+resource2
+	attributes
+resource3
+	attributes
+
+filename.pp
+---------------------------
+resource1
+	attributes
+type {	title
+	attributes
+	providers [Optional]
+type {	title
+	attributes
+	providers [Optional]
+type {	title
+	attributes
+	providers [Optional]
+type {	title
+	attributes
+	providers [Optional]
+resource3
+	attributes
+
+what "on Which"
+	with what
+
+file /opt/rajesh.txt
+	create
+
+file /opt/rajesh.txt
+	delete		
+service dns
+	start or stop
+===============================
+	.pp got ready....
+
+
+package { 'apache2':
+  ensure               => present
+}
+
+file { '/home/ubuntu/mypp/index.html':
+  ensure                  => present,
+  content                 => "<h1> Welcome to DevOpsSchool.com Puppet Class"
+}
+
+exec {'copy': 
+    cwd => '/home/ubuntu/mypp/', 
+    command => 'cp /home/ubuntu/mypp/index.html /var/www/html/index.html', 
+    path        => ['/bin/'],
+}
+
+service { 'apache2':
+  ensure     => running
+}
+
+
+Step 7- Check a SYNTAX of .pp
+$ puppet parser validate first.pp
+
+Step 8- Check a DRY run of .pp
+puppet apply first.pp --test
+
+Step 9 - Run .pp
+==================================
+puppet apply first.pp
+		
