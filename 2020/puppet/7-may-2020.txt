@@ -1,0 +1,141 @@
+3.7.252.127
+
+DevKIT(PuppetClient)	-> .pp 		-> .pp(S) -> module
+			- variables
+			- conditioning
+			- looping
+			- operators
+			- function
+============================================
+
+Puppet variables
+- Custom -> By You
+	Decalre	- 	
+		$var
+		$content = "some content\n"
+		[$a, $b, $c] = [1,2,3]
+
+	Resolution - 
+
+file {'/tmp/testing':
+  ensure  => file,
+  content => $content,
+}
+
+$address_array = [$address1, $address2, $address3]
+------------------
+$content = "some content\n"
+
+file { '/home/ubuntu/index.html':
+  ensure                  => present,
+  content                 => "$content"
+}
+
+notify { 'test':
+  message  => "\n====$content======\n"
+}
+
+
+	
+- FACT Var -> By SYSTEM
+$ facter
+## $fact_name or $facts[fact_name]
+$facts[uptime]
+
+$content = "some content\n"
+
+file { '/home/ubuntu/index.html':
+  ensure                  => present,
+  content                 => "$content"
+}
+
+notify { 'resource title':
+  message  => $facts[timezone]
+}
+
+  file {'/tmp/userfile.txt': 
+      ensure => file, 
+      content => "the value for the 'OperatingSystem' fact is: $facts['osfamily'] \n", 
+   } 
+
+
+
+
+Puppet Conditioning
+$content = true
+
+
+$operatingsystem=$facts['operatingsystem'] 
+
+
+    if $operatingsystem == 'Ubuntu' {
+      warning('This NTP module does not yet work on our Mac laptops.')
+    }
+    else {
+      include ntp
+    }
+
+
+notify { 'resource title':
+  message  => "hello world"
+}
+
+Puppet Looping
+=========================================
+clear
+
+==========================
+file1.pp 
+file2.pp
+file3.pp
+----------
+scripts
+------------
+template
+--------------------------
+	module
+
+
+puppet apply -e "include web"
+
+CALLING SUBCLASS
+include ::web::mine
+
+
+SUBCLASS
+class web::mine {
+
+}
+
+================================================================
+Module -> PP --> Resource TTPE Dec...
+
+127.0.0.1  puppet.example.vm puppet localhost
+3.7.252.127 puppet.example.vm #public ip
+172.31.12.152 puppet.example.vm #private ip
+
+
+https://3.7.252.127/auth/reset?token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhcGlfdXNlciIsInN1YiI6IjU4NDA2MTE4LTlhZjMtNDFmYS1hZWIyLWEwM2E2ZGYxM2Q1ZSIsImV4cCI6MTU5MTYyMjI3NywiaWF0IjoxNTkxNTM1ODc3fQ.NCX2XJiOzWFsjCO9iE8CfTME8hkDmK2lZeTqE5GTbEEc2XCAhhI1zc324FTqw4oP1GU97RCboMpNbC5Qh2KgDabFPxtgyabZg_HPpgs4aKWaHATu35NyWWM4dAkqUMD_2bU6imVlYcbvwTfuvw9RwvyPBLxXYvbOqI8cOAqTxqYLaEpq7d-37tTQK8mYMwSyrTUbae3cdSNngGdvHw6GEp2vtE_LoTctxYC8yCszyp8lm5_n7Hvnk8P2M2HezkTbpu5vLbNXSQUsKCP5azpJ0TODs4_qz06d0yuv6GuAbxzG0mTi0exHbuYAT9DoeYvvY0RXgWm9igzboSGxfLucUbgZXCOxrDLE-5XmJ2lmcvhV6ZiojIgz3K66SCuURljE92yuNM96PohGjbqsqjYqFAmYo_IaD2ewHy_6kvyG5NCILKfQjAt2RLxn8abCxQmeiD31mdbMDHiGwowyHZlp8uBgR_4zsXyQcPvsiTL6kiNKeQXgfKN9Ez1ZsxSb0ewmXM0wfmhCKsWQmK-huKpM_2lg2dJ8bfbIRuQFbppWpkJGCwmIRsuHOK-kidlwFl_6AiUSBsdkoy4_JoYJGwfmh1bEd-ZFid7ImYKVXBQ9jxYViIvjKDZbLfYK4UWAKPLoTByooGmvEtMIzCgszFBmdfIf4SQ0npOHD5Sl7dkSaAg
+
+
+curl -k https://3.7.252.127:8140/packages/current/install.bash | sudo bash
+- Install Agent
+- Config Agent
+- Request to become a Ndoe to Master
+	
+Master 
+	Acceptance
+		- RUN Modules to AGENT.
+
+site.pp
+	has mapping....
+	of what
+
+	Which Node???
+		Which Module?
+	Which GROUP of node?
+		Which Module
+
+https://puppet.com/docs/puppet/latest/lang_node_definitions.html
+https://kb.techtaco.org/linux/puppet/hiera/
+
