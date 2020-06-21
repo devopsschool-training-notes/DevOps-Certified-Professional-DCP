@@ -1,0 +1,386 @@
+What is Kubernetes?
+==========================
+	Container Orch Tool.
+	Free
+	Open Source
+	Donated by Google to CNCF
+	Written in Golang
+	2014*
+-----------------------------
+Container ---> Docker Container
+
+Orch - Running Container at Mass level Requires many stuff... that is fullfilled by K8s.
+	- Managing multiple Nodes
+	- Managing Containers
+	- Managing Neworking
+	- Managing Storage
+	- Managing Security
+
+Tool - 
+	Save time
+	Save cost
+	Improve Eff.
+		FOR Container in DATA CENTER
+=========================
+Why We need k8s?
+-----------------------
+
+Other Tools - 
+	Docker Swarm
+	Apache Mesos
+	Nomad
+
+=======================================
+Arcitecture of k8s?
+======================================
+Workstation ---> MASTER ----> WORKER(S)
+                -----------------------
+Human			k8s clustor
+
+
+Workstation
+	Kubectl - It is a tool which help to interact with "API Server"
+
+MASTER
+	API Server - FrontEND of k8s clustor. Contains 100s of API at one place.
+	ETCD - PERSISTANCE Storage for k8s clustor.
+	Controller mgr -> mgr of multiple controller.each controller control one things and run in the loop.
+	Schedular -> Assign a work to Worker.
+
+	CoreDNS  - Discovery Services
+	Weavenet - Networking driver
+	
+	Linux 64 BIT
+
+Worker	
+	kubelet ----> Running Agent in each Worker. It initiate a POD.
+	Container Engine - Container mgmt tool
+	Kube Proxy - Networking for every container**** ie. POD
+
+	LINUX
+	WINDOWS - 2019....
+
+======================================================================
+What is MOST important - 
+	HUMAN SHOULD SEND PROPER INSTRUCTIONS TO KUBECTL
+			  --------------------
+
+PROPER INSTRUCTIONS === API RESOURCES
+https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/
+
+		AWS		k8s
+- COMPUTING	ec2		pod
+- STORAGE	ebs		volume
+- NETWORKING	vpc		policy
+- SECURITY	iam		rbac
+- APPS		sqs,lb		deploy,services
+
+=============================================================
+POD
+Deploy
+Services
+==============================================================
+What is POD???
+
+VMware		Docker		k8s
+-----------------------------------------
+vms		container	pod
+OS-IMAGE	DOC-Image	Container(S)
+
+
+- Atomic unit of Scheduling in k8s.
+- POD has container (S)
+- Its a Wrapper of Group of Container.
+- Container is running so POD is running.
+- each pod get one IP address from kube proxy.
+=========================
+ONE POD == Name of API Resources ==== Pod
+MULTIPLE POD == Name of API Resources ==== Deployment
+
+================================================================
+How master and Worker Communite with Each other.
+
+Workstation		Master			Worker
+kubectl ----------> API Server			<< ------- Kubelet
+			http://ip:6*****			
+
+How to setup a clustor?
+===============================
+https://www.devopsschool.com/tutorial/docker/install-config/docker-install-commuityedition-centos-rhel.html
+https://www.devopsschool.com/blog/setting-up-kubernetes-clusters-using-kubeadm-manual-way-in-rhel-7-centos7/
+Workstation - 13.232.25.139
+Master - 13.232.25.139
+Worker - 13.127.193.151	
+
+Manual Way using KUBEADM.
+===========================
+MASTER
+	API Server --> POD -> Container -> Image -> GoogleRegistry
+	ETCD  --> POD -> Container -> Image -> GoogleRegistry
+	Controller mgr --> POD -> Container -> Image -> GoogleRegistry
+	Schedular --> POD -> Container -> Image -> GoogleRegistry
+
+	Kubelet
+	Docker
+	Kube Proxy
+	WHO WOULD DO ALL SETUP -----> KUBEADM.
+	
+=========================================================================
+==========================SETTING UP A WORKSTATION=======================
+To start using your cluster, you need to run the following as a regular user:
+
+  mkdir -p $HOME/.kube
+  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+=========================================================================
+==========================SETTING UP A NETWORK POLICY====================
+You should now deploy a pod network to the cluster.
+Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at:
+  https://kubernetes.io/docs/concepts/cluster-administration/addons/
+
+WEAVENET
+$ kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
+
+- Calico
+- WEAVENET
+- Cloud CNI
+=========================================================================
+==========================SETTING UP A WORKER=============================
+Then you can join any number of worker nodes by running the following on each as root:
+
+kubeadm join 172.31.23.196:6443 --token wix6ld.9a0ujsunll3lco0s \
+    --discovery-token-ca-cert-hash sha256:d0ef7dd2ae3a9b53752102bb985756aa998504194a81b4c84b15465666b2c1ee
+===============================================================
+===============================================================
+- https://www.devopsschool.com/blog/understanding-the-tools-sets-in-kubernetes-ecosystem/
+
+======================================================================
+======================================================================
+PRJ 1 - 6
+PRJ 2 - 4
+PRJ 3 - 6
+
+How to work with ANY API Request?
+=====================================
+CRUD			CMD		YAML
+	CREATE
+		create
+		apply
+	READ
+		get
+		describe
+	UPDATE 
+		edit
+		apply
+	DELETE
+		delete
+
+How to know all API resourcces?
+==========================================
+kubectl api-resources
+kubectl api-versions
+==========================================
+
+
+
+
+Namespace
+	LIMIT
+		CPU+RAM
+		STORAGE
+	ACCESS
+		Auth
+
+	SYSTEM
+	DEFAULT
+	PUBLIC
+	Node
+
+
+POD
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hello-pod
+  labels: 
+    app: webserver
+spec:
+  containers:
+  - name: hello-ctr
+    image: scmgalaxy/nginx-devopsschoolv1
+    ports:
+    - containerPort: 80
+
+----------------
+How to use POD?
+------------
+ACCESS USING
+	HTTP
+	GET INTO IT CONTAINER
+
+ 44  vi pod.yaml
+   45  kubectl create -f pod.yaml
+   46  kubectl get pod
+   47  kubectl get pod -o wide
+   48  kubectl describe pod hello-pod
+   49  clear
+   50  ls
+   51  kubectl get pod -o wide
+   52  kubectl get ns
+   53  kubectl create ns dev
+   54  kubectl create ns qa
+   55  kubectl get ns
+   56  kubectl create -f pod.yaml -n=dev
+   57  kubectl get ns -n=dev
+   58  kubectl get pods -n=dev
+   59  clear
+   60  kubectl create -f pod.yaml -n=dev
+   61  clear
+   62  ls
+   63  clear
+   64  kubectl delete -f pod.yaml -n=dev
+   65  kubectl get pods -n=dev
+   66  kubectl get pods
+   67  kubectl delete pod hello-pod
+   68  clear
+   69  ls
+   70  clear
+   71  ls
+   72  ks
+   73  ls
+   74  clear
+   75  ls
+   76  kubectl apply -f pod.yaml
+   77  kubectl get pods
+   78  kubectl get pods -o wide
+   79  curl http://10.44.0.1
+   80  clear
+   81  ls
+   82  kubectl get pods -o wide
+   83  kubectl exec -it hello-pod /bin/bash
+   84  clear
+   85  ls
+   86  kubectl get pods
+   87  kubectl logs hello-pod
+   88  curl http://10.44.0.1
+   89  kubectl logs hello-pod
+   90  history
+
+
+DEPLOYMENT
+	- Replicate A POD to MANY
+	- Controller - Make sure Actual is always match with Desire
+	- Rollback
+	- Versioing
+
+ 93  kubectl
+   94  clear
+   95  kubectl create
+   96  clear
+   97  kubectl create deployment
+   98  kubectl create deployment -h
+   99  kubectl create deployment my-dep --image=scmgalaxy/nginx-devopsschoolv1
+  100  clear
+  101  kubectl get deploy
+  102  kubectl get pods
+  103  kubectl edit deploy my-dep
+  104  clear
+  105  kubectl get pods
+  106  clear
+  107  kubectl get pods
+  108  kubectl delete pod my-dep-76767c79f-hfplr
+  109  kubectl get pods
+  110  kubectl scale
+  111  kubectl scale -h
+  112  clear
+  113  kubectl scale --replicas=8 deployment/my-dep
+  114  kubectl get deploy
+  115  kubectl get pods
+  116  kubectl get pods -o wide
+  117  clear
+  118  kubectl get pods -o wide\
+  119  kubectl get pods -o wide
+  120  curl http://10.44.0.3
+  121  clear
+  122  ls
+  123  kubectl get deploy
+  124  kubectl edit deploy my-dep
+  125  clear
+  126  kubectl get pods -o wide
+  127  clear
+  128  kubectl get pods -o wide
+  129  watch kubectl get pods -o wide
+  130  ckear
+  131  clear
+  132  watch kubectl get pods -o wide
+  133  curl http://10.44.0.8
+  134  kubectl rollout
+  135  kubectl rollout history deploy/my-dep
+  136  clar
+  137  clear
+  138  kubectl rollout
+  139  kubectl rollout undo
+  140  kubectl rollout undo -h
+  141  clear
+  142  kubectl rollout undo daemonset/abc --to-revision=3
+  143  clear
+  144  kubectl rollout undo deploy/my-dep --to-revision=1
+  145  kubectl rollout status
+  146  watch kubectl rollout status deploy/my-dep
+  147  kubectl rollout status deploy/my-dep
+  148  kubectl get pods
+  149  kubectl get pods -o wide
+  150  clear
+  151  curl http://10.44.0.1
+  152  clear
+  153  history
+
+
+SERVICES
+------------------------------------------------
+What is SERVICE?
+	----> is a LOADBALANCER of PODS.
+What is TYPE SERVICE?
+How SERVICES Works?
+How to CRUD SERVICES?
+=========================
+https://kubernetes.io/docs/setup/
+
+
+ 150  clear
+  151  curl http://10.44.0.1
+  152  clear
+  153  history
+  154  clear
+  155  kubectl get svc
+  156  kubectl expose
+  157  kubectl expose -h
+  158  clear
+  159  kubectl expose deploy my-dep --port=80 --target-port=80
+  160  kubectl get svc
+  161  kubectl describe svc my-dep
+  162  kubectl get deploy
+  163  clear
+  164  kubectl get svc
+  165  curl http://10.104.240.19
+  166  history
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
