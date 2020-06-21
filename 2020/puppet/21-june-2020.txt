@@ -1,0 +1,148 @@
+Variables = value
+	- Reuse a value.
+=================================
+How to declare variables in .pp
+-------------------------------------------
+$content = "Welcome to my world\n"
+
+How to use variables in .pp?
+-------------------------------------------
+file {'/tmp/testing':
+  ensure  => file,
+  content => $content,
+}
+
+How to declare array variables in .pp
+-------------------------------------------
+[$a, $b, $c] = [1,2,3]
+
+file {'/tmp/testing':
+  ensure  => file,
+  content => $a,
+}
+
+$address_array = [$a, $b, $v]
+
+file {'/tmp/testing':
+  ensure  => file,
+  content => $address_array,
+}
+
+Varaibles types
+---------------------
+https://puppet.com/docs/puppet/5.5/lang_data_type.html
+
+
+- Conditioining[P]
+	[
+TRUE OR FALSE of SOME VARIABLE.
+			CUSTOM
+				String
+				List
+			FACT
+			- fact of server
+
+	]
+- Looping[P]
+- Hiera
+==========================
+Puppet server 3.10.173.59
+Puppet agent 3.8.232.204
+
+if $facts['os']['name'] == 'Ubuntu'  {
+
+notify { 'inside_ubuntu':
+}
+
+package { 'apache2':
+  ensure               => present
+}
+}
+
+else  {
+
+notify { 'inside_rhel':
+}
+
+}
+
+file { '/var/www/html/index.html':
+  ensure                  => present,
+  content                 => "<h1> Welcome to DevOpsSchool.com Puppet Classi v2"
+}
+
+service { 'apache2':
+  ensure     => running
+}
+
+=====================================
+if $facts['os']['name'] == 'Ubuntu'  {
+
+notify { 'inside_ubuntu':
+}
+package { 'apache2':
+  ensure               => present
+}
+}
+
+else  {
+
+notify { 'inside_rhel':
+}
+
+}
+=====================================
+
+
+$binaries = ['git', 'apache2', 'choqok', 'twidge', 'gwibber']
+
+$binaries.each |String $binary| {
+package { "$binary":
+  ensure               => present
+}
+}
+
+
+- Hiera
+==========================================================
+Means - hierarchy
+
+==========================
+There is requirment for keeping
+	- Code and Variables at Separate Place.
+===============================================
+Varaible Can be decalred at how many places
+===========================================
+Module			/etc/puppetlabs/code/environments/production/modules/webserver/hiera.yaml
+Environment		/etc/puppetlabs/code/environments/production/hiera.yaml
+SYSTEM
+agent aka server	/etc/puppetlabs/puppet/hiera.yaml
+---------------------
+HOW CAN YOU MANAGE Variables FOR ALL ABOVE?
+	- Hiera.yaml
+
+webserver::message: "This is HERO Sample"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
